@@ -1,0 +1,153 @@
+\documentclass{article}
+\usepackage{csquotes}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{references.bib}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage[spanish]{babel}
+\usepackage{xcolor}
+% beta 
+% \pagecolor[rgb]{0,0,0} \color[rgb]{1,1,1}
+\DeclareUnicodeCharacter{202F}{\,}
+
+% URL breaking configuration (biblatex already loads url package)
+\def\UrlBreaks{\do\/\do-\do_\do.\do=\do?\do&}
+\urlstyle{same}
+
+% Better line breaking to handle overfull hbox
+\sloppy
+
+\title{Preliminar: TFG}
+\author{Ignacio de Miguel}
+\date{September 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Preliminar, la paradoja de Simpson}
+Supongamos una población de 700 personas en la que hay una nueva epidemia para la que tenemos que averiguar si una nueva medicación es apropiada.
+Un estudio podría consistir en averiguar la tasa de curación en pacientes que toman la medicación y compararla con la tasa de curación de los pacientes no medicados.
+
+Extraemos la siguiente tabla del libro de Pearl:
+
+\begin{table}[ht]
+    \centering
+    \caption{Results of a study into a new drug, with gender being taken into account}
+    \label{tab:drug-gender}
+    \begin{tabular}{@{}lcc@{}}
+    \toprule
+    & \textbf{Drug} & \textbf{No drug} \\
+    \midrule
+    Men            & 81 out of 87 recovered (93\%)   & 234 out of 270 recovered (87\%) \\
+    Women          & 192 out of 263 recovered (73\%) & 55 out of 80 recovered (69\%)   \\
+    Combined data  & 273 out of 350 recovered (78\%) & 289 out of 350 recovered (83\%) \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Centrémonos en la última fila. Vaya, hay una tasa de mayor recuperación entre los pacientes que no toman la medicación frente a los pacientes medicados. Podemos entonces concluir que la medicación no es efectiva.
+
+El problema se descubre cuando visualizamos los datos teniendo en cuenta el género de los pacientes medicados versus aquellos no medicados. Si separamos por género, ahora tenemos que la medicación es más efectiva tanto en el caso de hombres como mujeres.
+
+Esto da lugar a la paradoja de Simpson: la medicación es efectiva y la medicación no es efectiva. Es más, considerando que \textbf{no} sabemos el género de la persona que queremos tratar, deberíamos \textbf{no darle} la medicación. Una vez esta persona nos desvela si es hombre o mujer, \textbf{ya deberíamos} darle la medicación, pues los datos indican que en cualquiera de los casos mejorará.
+
+Absurdo. Si ayuda a hombres y mujeres, debería ayudar a cualquiera de los dos. El problema, según interpreto yo, es que los hombres están infrarrepresentados en "tomar la medicación", teniendo menos peso en el cómputo total. 
+
+Se ve de forma más extrema con el siguiente ejemplo:
+
+\begin{table}[ht]
+    \centering
+    \caption{Results of a study into a new drug, with gender being taken into account}
+    \label{tab:drug-gender}
+    \begin{tabular}{@{}lcc@{}}
+    \toprule
+    & \textbf{Drug} & \textbf{No drug} \\
+    \midrule
+    Men            & 1 out of 1 recovered (100\%)   & 234 out of 270 recovered (87\%) \\
+    Women          & 192 out of 263 recovered (73\%) & 55 out of 80 recovered (69\%)   \\
+    Combined data  & 193 out of 264 recovered (73\%) & 289 out of 350 recovered (83\%) \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+También podríamos interpretar que el género es una variable confusora o \textit{confounding variable}. En este estudio, ser hombre se asocia con tener una mayor capacidad de recuperación, pero también con una menor probabilidad de tomar la medicación. Esto hace que la población que no toma la medicación (mayoritariamente hombres) se cure más, pues tiene una mayor capacidad de recuperación. Al separar por la variable confusora, se resuelve la confusión.
+
+De hecho, la paradoja se resuelve suponiendo que averiguamos que el estrógeno actúa en contra de la capacidad curativa general, por lo que es menos probable que una mujer se cure. Además, se supone que es más probable que una mujer tome el medicamento, precisamente porque el efecto adverso de la enfermedad es mayor en la mujer.
+
+Se me ocurre alguna pregunta, como por ejemplo: si suponemos que no sabemos que el estrógeno actúa en contra de la capacidad curativa general, ¿cómo sabemos que la separación entre hombres y mujeres no es arbitraria y por tanto inservible?
+
+\dots
+
+\subsection{Causa}
+\textbf{Definición informal:} Sea $X$ una variable. Decimos que $X$ está causada por $Y$ si $X$ depende de $Y$ para su valor.
+
+
+\subsection{Study 1.2.1}
+\textit{What is wrong with the following claims?}
+\begin{enumerate}
+    \item Data show that income and marriage have a high positive correlation. Therefore, your
+    earnings will increase if you get married.
+    Veo tres maneras de atacar esta afirmación. La primera es decir que correlación no implica causalidad, y punto. La siguiente es proponer un modelo alternativo: si alguien puede casarse, es porque tiene el dinero para hacerlo, por lo tanto si tienes más dinero entonces será más probable que te cases porque tendrás la probabilidad de asentarte.
+    \item ata show that as the number of fires increase, so does the number of fire fighters. There-
+    fore, to cut down on fires, you should reduce the number of fire fighters.
+    Aquí, es obvio que la causa de que haya más bomberos es que haya más fuegos, pero si A es la causa de B, obviamente B no tiene por qué ser la causa de A (y de hecho, no puede ocurrir, porque si A causa B entonces A es antes que B por lo que B no puede ser antes que A)
+    \item Data show that people who hurry tend to be late to their meetings. Don’t hurry, or you’ll
+    be late
+    La variable confusora es "es tarde". Si es tarde, entonces tienes más posibilidad de llegar tarde, y también de darte prisa, no?
+\end{enumerate}
+
+\subsection{Study 1.2.2}
+\textit{A baseball batter Tim has a better batting average than his teammate Frank. However, some-
+one notices that Frank has a better batting average than Tim against both right-handed and
+left-handed pitchers. How can this happen? (Present your answer in a table.)}
+
+Podemos calcar la tabla que habíamos conseguido al principio para la paradoja de Simpson.
+
+\begin{table}[ht]
+    \centering
+    \caption{Results of a study into a new drug, with gender being taken into account}
+    \label{tab:drug-gender}
+    \begin{tabular}{@{}lcc@{}}
+    \toprule
+    & \textbf{Frank} & \textbf{Tim} \\
+    \midrule
+    vs. Left-Handed            & 81 out of 87 (93\%)   & 234 out of 270 (87\%) \\
+    vs. Right-Handed          & 192 out of 263 (73\%) & 55 out of 80 (69\%)   \\
+    Combined data  & 273 out of 350 (78\%) & 289 out of 350 (83\%) \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Y podemos extrapolar los análogos. Antes era que `tomar la medicación tiene un efecto positivo sobre la curación, pero ser hombre causa que se tome menos la medicación y además un aumento general de la capacidad de recuperación, por lo que tienen más peso las mujeres que toman la medicación que los hombres que la toman, bajando así la tasa total de recuperación, y subiendo la tasa de recuperación del grupo que no toma la medicación, pues son mayoritariamente hombres con mayor tasa de recuperación'
+Teniendo esto en cuenta, ahora diríamos que `hacer que Frank batee tiene un efecto positivo sobre el bateo, pero (y esta es la parte que menos puedo extrapolar porque no la entiendo) un zurdo tiene menos probabilidad de lanzar contra Frank y más probabilidad de lanzar contra Tim, y es más fácil ganarle a un zurdo que a un diestro, por lo que parece que Tim lo hace mejor que Frank cuando en realidad no es así'
+
+\subsection{Study 1.2.3}
+\textit{There are two treatments used on kidney stones: Treatment A and Treatment B. Doctors
+are more likely to use Treatment A on large (and therefore, more severe) stones and more
+likely to use Treatment B on small stones. Should a patient who doesn't know the size of
+his or her stone examine the general population data, or the stone size-specific data when
+determining which treatment will be more effective?}
+
+Partimos de la base de que las piedras grandes son más difíciles de tratar en general y por lo tanto van a tener menor tasa de éxito.
+Además, es más probable que el tratamiento A se enfrente más a piedras difíciles que a piedras fáciles de tratar, por lo que esto va a hacer que la tasa de éxito agregada de A disminuya (pues se enfrenta a situaciones más difíciles).
+De la misma manera, esto hará que la tasa de éxito agregada de B aumente, pues se enfrenta más a las piedras más fáciles. Si separamos por tipo de piedra, quizá este no sea el caso.
+Por ello, estamos ante una situación similar a la de Frank y Tim, donde Frank se enfrenta a situaciones más difíciles que Tim una mayor proporción de veces. Por ello, se deberían consultar los datos segregados.
+
+\textit{There are two doctors in a small town. Each has performed 100 surgeries in his career,
+which are of two types: one very difficult surgery and one very easy surgery. The first doctor
+performs the easy surgery much more often than the difficult surgery and the second doctor
+performs the difficult surgery more often than the easy surgery. You need surgery, but you
+do not know whether your case is easy or difficult. Should you consult the success rate
+of each doctor over all cases, or should you consult their success rates for the easy and
+difficult cases separately, to maximize the chance of a successful surgery?}
+Nos encontramos ante el mismo caso que antes. Uno de los doctores lo va a tener más difícil para ser el mejor doctor, a menos que hayan hecho el mismo número de difíciles y de fáciles. Un caso límite que podríamos pensar es si uno de ellos solo ha hecho una fácil y 99 difíciles, mientras que el otro ha hecho 99 fáciles y solo 1 difícil. El hecho de que el que ha hecho más fáciles que difíciles tenga una tasa de acierto mayor no quiere decir nada ni nos permite concluir nada. Por ello, hay que mirar los datos segregados.
+
+\subsection{Pregunta del examen de Jesús}
+\textit{}
+
+Práctica vs. Tasa de aciertos
+\end{document}
