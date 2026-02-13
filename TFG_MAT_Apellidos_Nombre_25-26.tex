@@ -238,7 +238,6 @@ Si llamamos $H$ a `ser hombre' y $C$ a `curarse', tenemos que, como antes:
 \end{equation*}
 
 Pero, si condicionamos por el sexo, las desigualdades se invierten:
-
 \begin{align*}
     P(C\mid M, H) &> P(C\mid \neg M, H) \\
     P(C\mid M, \neg H) &> P(C\mid \neg M, \neg H)
@@ -248,14 +247,11 @@ Es decir, al no observar el sexo del paciente, la probabilidad de curarse dado q
 
 Si nos centramos en los números de la tabla separada por sexo vemos que los grupos no son homogéneos. Hay más mujeres que tomaron la medicina que hombres. De igual manera, más hombres no tomaron la medicina que mujeres.
 
+Volvemos a la afirmación anterior: las mujeres son más vulnerables que los hombres. Como más mujeres tomaron la medicina, la medicina tuvo que `enfrentarse' a casos más `difíciles' de resolver más frecuentemente. Es decir, en el caso de tomarse la medicina, esta se enfrentó más veces a casos más difíciles de curar. En el caso de no tomarla, la `no-medicina' se enfrentó mayoritariamente a casos fáciles de curar.
 
-Absurdo. Si ayuda a hombres y mujeres, debería ayudar a cualquiera de los dos. El problema, según interpreto yo, es que los hombres están infrarrepresentados en "tomar la medicación", teniendo menos peso en el cómputo total. 
+En este caso, en particular, supongamos que se realiza una investigación en profundidad del criterio que utilizaron los médicos para recetar o no el remedio. Descubrimos que, ante la incertidumbre de saber si realmente surtiría un efecto positivo, lo emplearon con mayor tendencia en casos de mayor riesgo, en este caso los pacientes de sexo femenino.
 
-Se ve de forma más extrema con el ejemplo visible en la tabla~\ref{tab:table-extreme}
-
-
-También podríamos interpretar que el género es una variable confusora o \textit{confounding variable}. En este estudio, ser hombre se asocia con tener una mayor capacidad de recuperación, pero también con una menor probabilidad de tomar la medicación. Esto hace que la población que no toma la medicación (mayoritariamente hombres) se cure más, pues tiene una mayor capacidad de recuperación. Al separar por la variable confusora, se resuelve la confusión. 
-De hecho, la paradoja se resuelve suponiendo que averiguamos que el estrógeno actúa en contra de la capacidad curativa general, por lo que es menos probable que una mujer se cure. Además, se supone que es más probable que una mujer tome el medicamento, precisamente porque el efecto adverso de la enfermedad es mayor en la mujer.
+Esto causó los datos que vemos en la tabla, donde el remedio se enfrentaba en su mayoría a casos de mujeres. En definitiva, y proponiendo un grafo similar al de~\ref{fig:dag_causal}, podemos concluir que 
 
 
 \section{Resultados preliminares}
