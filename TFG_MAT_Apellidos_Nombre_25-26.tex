@@ -173,7 +173,7 @@ Un cálculo rápido de las probabilidades condicionales nos lleva a que $P(X=1|Y
 
 Supongamos que interpretamos $X$ como `el suelo está mojado' e $Y$ como `la gente lleva paraguas'. Ahora se vuelve más claro por qué no podemos afirmar que $X = 1$ cause $Y = 1$. Incluso existiendo una relación causal entre las variables, afirmaciones de este tipo pueden no ser ciertas: supongamos ahora que interpretamos $Y$ como `ha llovido'. Sabemos de sobra que $Y = 1$ causaría $X = 1$, pero si partimos de las probabilidades condicionales, sería indistinguible decir esto de decir que $X = 1$ causa $Y = 1$. Es decir, afirmar que llover causa que el suelo esté mojado porque las variables están correlacionadas sería tan válido como afirmar que el que el suelo esté mojado cause que llueva por la misma razón.
 
-En definitiva, \textbf{$N$ variables no están causalmente relacionadas por estar correlacionadas}. Si volvemos a nuestra interpretación original de las variables $X$ e $Y$ (y, en general, para cualquier par de variables $X$ e $Y$, si existe una correlación entre $X$ e $Y$ pero no hay relación causal, debe existir una variable $Z$ que explique esa correlación entre ambas~\cite{Reichenbach1956}), sabemos de sobra que existe una variable $Z$ que podemos interpretar como `llueve', que \textbf{directamente} causa que el suelo esté mojado y que la gente lleve paraguas. El propio razonamiento ya nos lleva a deducir que \textbf{no es suficiente} con los razonamientos estadísticos estándar. Debemos elaborar un cuento causal, similar a lo que se vería en la Figura~\ref{fig:dag_causal}.
+En definitiva, \textbf{$N$ variables no están causalmente relacionadas por estar correlacionadas}. Si volvemos a nuestra interpretación original de las variables $X$ e $Y$, sabemos de sobra que existe una variable $Z$ que podemos interpretar como `llueve', que \textbf{directamente} causa que el suelo esté mojado y que la gente lleve paraguas (y, en general, para cualquier par de variables $X$ e $Y$, si existe una correlación entre $X$ e $Y$ pero no hay relación causal, debe existir una variable $Z$ que explique esa correlación entre ambas~\cite{Reichenbach1956}). El propio razonamiento ya nos lleva a deducir que \textbf{no es suficiente} con los razonamientos estadísticos estándar. Debemos elaborar un cuento causal, similar a lo que se vería en la Figura~\ref{fig:dag_causal}.
 
 \begin{figure}[h]
 \centering
@@ -199,8 +199,20 @@ En definitiva, \textbf{$N$ variables no están causalmente relacionadas por esta
 
 La diferencia clave entre la estadística tradicional y el estudio de la causalidad es la intervención. Una manera de saber si hay una relación causal entre dos variables es la de responder a la pregunta: \textbf{¿cambiaría la variable $X$ si modifico la variable $Y$?}, mientras que, originalmente, en estadística preguntamos \textbf{¿hemos observado que un cambio en $X$ está asociado a un cambio en la variable $Y$?}
 \section{La paradoja de Simpson}
-Supongamos una población de 700 personas en la que hay una nueva epidemia para la que tenemos que averiguar si una nueva medicación es apropiada.
-Un estudio podría consistir en averiguar la tasa de curación en pacientes que toman la medicación y compararla con la tasa de curación de los pacientes no medicados.
+Supongamos una población en la que se ha descubierto una nueva epidemia. Rápidamente, los doctores responsables del bienestar de dicha población se ponen manos a la obra para intentar descubrir un remedio. Se descubre que una cierta medicación $M$ produce los datos que podemos ver en la Tabla~\ref{tab:drug-no-gender}.
+
+\begin{table}[ht]
+    \centering
+    \caption{Resultados de aplicar la medicación a la población descrita}
+    \label{tab:drug-no-gender}
+    \begin{tabular}{@{}lcc@{}}
+    \toprule
+    & \textbf{Drug} & \textbf{No drug} \\
+    \midrule
+    Curación  & 273 de 350 se curaron (78\%) & 289 de 350 se curaron (83\%) \\
+    \bottomrule
+    \end{tabular}
+\end{table}
 
 \begin{table}[ht]
     \centering
