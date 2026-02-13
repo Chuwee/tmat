@@ -224,8 +224,8 @@ Considerando estos datos, lo más sensato sería retirar de inmediato la medicac
     \toprule
     & \textbf{Tomaron la medicina} & \textbf{No tomaron la medicina} \\
     \midrule
-    Men            & 81 de 87 se curaron (93\%)   & 234 de 270 se curaron (87\%) \\
-    Women          & 192 de 263 se curaron (73\%) & 55 de 80 se curaron (69\%)   \\
+    Hombres            & 81 de 87 se curaron (93\%)   & 234 de 270 se curaron (87\%) \\
+    Mujeres          & 192 de 263 se curaron (73\%) & 55 de 80 se curaron (69\%)   \\
     Datos de curación  & 273 de 350 se curaron (78\%) & 289 de 350 se curaron (83\%) \\
     \bottomrule
     \end{tabular}
@@ -240,9 +240,11 @@ Si llamamos $H$ a `ser hombre' y $C$ a `curarse', tenemos que, como antes:
 Pero, si condicionamos por el sexo:
 
 \begin{align*}
-    P(C|M, H) >&& P(C|\neg M, H) \\
-    P(C|M, \neg H) <&& P(C|\neg M, \neg H)
+    P(C|M, H) &> P(C|\neg M, H) \\
+    P(C|M, \neg H) &> P(C|\neg M, \neg H)
 \end{align*}
+
+Es decir, al no observar el sexo del paciente, la probabilidad de curarse dado que se toma la medicación es menor que la de curarse sin tomarse nada, pero \textbf{una vez hemos observado el sexo del paciente}, concluimos que sí debe tomar la medicación. Carece de sentido lógico. 
 
 El problema se descubre cuando visualizamos los datos teniendo en cuenta el género de los pacientes medicados versus aquellos no medicados. Si separamos por género, ahora tenemos que la medicación es más efectiva tanto en el caso de hombres como mujeres.
 
