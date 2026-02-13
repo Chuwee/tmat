@@ -234,10 +234,15 @@ Considerando estos datos, lo más sensato sería retirar de inmediato la medicac
 Si llamamos $H$ a `ser hombre' y $C$ a `curarse', tenemos que, como antes:
 
 \begin{equation*}
-    P(C|M) < P(C|\neg M) \\ a
+    P(C|M) < P(C|\neg M)
 \end{equation*}
 
 Pero, si condicionamos por el sexo:
+
+\begin{align*}
+    P(C|M, H) >&& P(C|\neg M, H) \\
+    P(C|M, \neg H) <&& P(C|\neg M, \neg H)
+\end{align*}
 
 El problema se descubre cuando visualizamos los datos teniendo en cuenta el género de los pacientes medicados versus aquellos no medicados. Si separamos por género, ahora tenemos que la medicación es más efectiva tanto en el caso de hombres como mujeres.
 
