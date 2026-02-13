@@ -249,9 +249,34 @@ Si nos centramos en los números de la tabla separada por sexo vemos que los gru
 
 Volvemos a la afirmación anterior: las mujeres son más vulnerables que los hombres. Como más mujeres tomaron la medicina, la medicina tuvo que `enfrentarse' a casos más `difíciles' de resolver más frecuentemente. Es decir, en el caso de tomarse la medicina, esta se enfrentó más veces a casos más difíciles de curar. En el caso de no tomarla, la `no-medicina' se enfrentó mayoritariamente a casos fáciles de curar.
 
-En este caso, en particular, supongamos que se realiza una investigación en profundidad del criterio que utilizaron los médicos para recetar o no el remedio. Descubrimos que, ante la incertidumbre de saber si realmente surtiría un efecto positivo, lo emplearon con mayor tendencia en casos de mayor riesgo, en este caso los pacientes de sexo femenino.
+En este caso en particular, supongamos que se realiza una investigación en profundidad del criterio que utilizaron los médicos para recetar o no el remedio. Descubrimos que, ante la incertidumbre de saber si realmente surtiría un efecto positivo, lo emplearon con mayor tendencia en casos de mayor riesgo, en este caso los pacientes de sexo femenino.
 
-Esto causó los datos que vemos en la tabla, donde el remedio se enfrentaba en su mayoría a casos de mujeres. En definitiva, y proponiendo un grafo similar al de~\ref{fig:dag_causal}, podemos concluir que 
+Esto causó los datos que vemos en la tabla, donde el remedio se enfrentaba en su mayoría a casos de mujeres. Si ahora intentamos construir un grafo similar a la Figura~\ref{fig:dag_causal}, podemos establecer varias relaciones causales:
+
+\begin{enumerate}
+    \item La curación de un paciente depende de si se le da la medicina o no.
+    \item La curación de un paciente depende de su sexo.
+    \item El que se recete el remedio a un paciente depende de su sexo.
+\end{enumerate}
+
+Por tanto, el grafo que podríamos construir sería similar al de la Figura~\ref{fig:simpson-dag}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[>=stealth, node distance=2cm]
+        % Nodos
+        \node[draw, circle] (G) at (0, 2) {Sexo ($Z$)};
+        \node[draw, circle] (T) at (-2, 0) {Tratamiento ($X$)};
+        \node[draw, circle] (R) at (2, 0) {Recuperación ($Y$)};
+
+        % Flechas (Causalidad)
+        \draw[->, thick] (G) -- (T) node[midway, above left] {sesgo};
+        \draw[->, thick] (G) -- (R) node[midway, above right] {pronóstico};
+        \draw[->, thick] (T) -- (R) node[midway, above] {?};
+    \end{tikzpicture}
+    \caption{Diagrama Causal (DAG) de la Paradoja de Simpson. La variable $Z$ (Sexo) es una variable de confusión que afecta tanto a la asignación del tratamiento como al resultado.}
+    \label{fig:simpson-dag}
+\end{figure}
 
 
 \section{Resultados preliminares}
