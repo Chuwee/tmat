@@ -199,7 +199,7 @@ En definitiva, \textbf{$N$ variables no están causalmente relacionadas por esta
 
 La diferencia clave entre la estadística tradicional y el estudio de la causalidad es la intervención. Una manera de saber si hay una relación causal entre dos variables es la de responder a la pregunta: \textbf{¿cambiaría la variable $X$ si modifico la variable $Y$?}, mientras que, originalmente, en estadística preguntamos \textbf{¿hemos observado que un cambio en $X$ está asociado a un cambio en la variable $Y$?}
 \section{La paradoja de Simpson}
-Supongamos una población en la que se ha descubierto una nueva epidemia. Rápidamente, los doctores responsables del bienestar de dicha población se ponen manos a la obra para intentar descubrir un remedio. Se descubre que una cierta medicación $M$ produce los datos que podemos ver en la Tabla~\ref{tab:drug-no-gender}.
+Supongamos una población en la que se ha descubierto una nueva epidemia. Rápidamente, los doctores responsables del bienestar de dicha población se ponen manos a la obra para intentar descubrir un remedio. Un estudio preliminar observacional sobre una medicación $M$ arroja los datos que podemos ver en la Tabla~\ref{tab:drug-no-gender}.
 
 \begin{table}[ht]
     \centering
@@ -237,18 +237,17 @@ Si llamamos $H$ a `ser hombre' y $C$ a `curarse', tenemos que, como antes:
     P(C|M) < P(C|\neg M)
 \end{equation*}
 
-Pero, si condicionamos por el sexo:
+Pero, si condicionamos por el sexo, las desigualdades se invierten:
 
 \begin{align*}
-    P(C|M, H) &> P(C|\neg M, H) \\
-    P(C|M, \neg H) &> P(C|\neg M, \neg H)
+    P(C\mid M, H) &> P(C\mid \neg M, H) \\
+    P(C\mid M, \neg H) &> P(C\mid \neg M, \neg H)
 \end{align*}
 
 Es decir, al no observar el sexo del paciente, la probabilidad de curarse dado que se toma la medicación es menor que la de curarse sin tomarse nada, pero \textbf{una vez hemos observado el sexo del paciente}, concluimos que sí debe tomar la medicación. Carece de sentido lógico. 
 
-El problema se descubre cuando visualizamos los datos teniendo en cuenta el género de los pacientes medicados versus aquellos no medicados. Si separamos por género, ahora tenemos que la medicación es más efectiva tanto en el caso de hombres como mujeres.
+Si nos centramos en los números de la tabla separada por sexo vemos que los grupos no son homogéneos. Hay más mujeres que tomaron la medicina que hombres. De igual manera, más hombres no tomaron la medicina que mujeres.
 
-Esto da lugar a la paradoja de Simpson: la medicación es efectiva y la medicación no es efectiva. Es más, considerando que \textbf{no} sabemos el género de la persona que queremos tratar, deberíamos \textbf{no darle} la medicación. Una vez esta persona nos desvela si es hombre o mujer, \textbf{ya deberíamos} darle la medicación, pues los datos indican que en cualquiera de los casos mejorará.
 
 Absurdo. Si ayuda a hombres y mujeres, debería ayudar a cualquiera de los dos. El problema, según interpreto yo, es que los hombres están infrarrepresentados en "tomar la medicación", teniendo menos peso en el cómputo total. 
 
