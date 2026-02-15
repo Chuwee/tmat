@@ -269,8 +269,6 @@ Por tanto, el grafo que podríamos construir sería similar al de la Figura~\ref
     every node/.style={circle, draw, minimum size=1cm, thick, fill=white}
 ]
 
-Supongamos que la razón por la que las mujeres resultan más afectadas es los niveles de estrógeno en el organismo. 
-
 % Nodos
 \node (H) {$H$};
 \node[below left=of H] (X) {$M$};
@@ -286,8 +284,9 @@ Supongamos que la razón por la que las mujeres resultan más afectadas es los n
     \label{fig:simpson-dag}
 \end{figure}
 
+Al ser menos probable que una mujer se cure, independientemente de la medicación que tome, lo más razonable es separar los datos. De cualquier otra manera, nuestros datos presentan una `competición' de variables, donde el tratamiento es menos determinante que el sexo del individuo.
 
-
+Lo que deberíamos hacer entonces es tratar de mirar las variables por separado, es decir, fijar las dos, o lo que es lo mismo, considerar las probabilidades condicionadas. 
 
 \section{Resultados preliminares}
 
