@@ -243,7 +243,7 @@ Pero, si condicionamos por el sexo, las desigualdades se invierten:
     P(C\mid M, \neg H) &> P(C\mid \neg M, \neg H)
 \end{align*}
 
-Es decir, al no observar el sexo del paciente, la probabilidad de curarse dado que se toma la medicación es menor que la de curarse sin tomarse nada, pero \textbf{una vez hemos observado el sexo del paciente}, concluimos que sí debe tomar la medicación. Carece de sentido lógico. 
+Es decir, al no observar el sexo del paciente, la probabilidad de curarse dado que se toma la medicación es menor que la de curarse sin tomarse nada, pero \textbf{una vez hemos observado el sexo del paciente}, concluimos que sí debe tomar la medicación. Carece de sentido lógico. A esto se le conoce como la Paradoja de Simpson (recibe su nombre de Edward Simpson ).
 
 Si nos centramos en los números de la tabla separada por sexo vemos que los grupos no son homogéneos. Hay más mujeres que tomaron la medicina que hombres. De igual manera, más hombres no tomaron la medicina que mujeres.
 
@@ -263,18 +263,24 @@ Por tanto, el grafo que podríamos construir sería similar al de la Figura~\ref
 
 \begin{figure}[ht]
     \centering
-    \begin{tikzpicture}[>=stealth, node distance=2cm]
-        % Nodos
-        \node[draw, circle] (G) at (0, 2) {Sexo ($Z$)};
-        \node[draw, circle] (T) at (-2, 0) {Tratamiento ($X$)};
-        \node[draw, circle] (R) at (2, 0) {Recuperación ($Y$)};
+\begin{tikzpicture}[
+    node distance=2.5cm,
+    decoration={markings, mark=at position 1 with {\arrow{stealth}}},
+    every node/.style={circle, draw, minimum size=1cm, thick, fill=white}
+]
 
-        % Flechas (Causalidad)
-        \draw[->, thick] (G) -- (T) node[midway, above left] {sesgo};
-        \draw[->, thick] (G) -- (R) node[midway, above right] {pronóstico};
-        \draw[->, thick] (T) -- (R) node[midway, above] {?};
-    \end{tikzpicture}
-    \caption{Diagrama Causal (DAG) de la Paradoja de Simpson. La variable $Z$ (Sexo) es una variable de confusión que afecta tanto a la asignación del tratamiento como al resultado.}
+% Nodos
+\node (H) {$H$};
+\node[below left=of H] (X) {$M$};
+\node[below right=of H] (Y) {$C$};
+
+% Aristas
+\draw[thick, postaction={decorate}] (H) -- (X);
+\draw[thick, postaction={decorate}] (H) -- (Y);
+\draw[thick, postaction={decorate}] (X) -- (Y);
+
+\end{tikzpicture}
+    \caption{Diagrama Causal (DAG) de la Paradoja de Simpson. La variable $H$ (Sexo) tiene efecto tanto en la receta del tratamiento como en la curación.}
     \label{fig:simpson-dag}
 \end{figure}
 
