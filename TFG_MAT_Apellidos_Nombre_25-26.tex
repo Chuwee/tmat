@@ -237,13 +237,13 @@ Si llamamos $H$ a `ser hombre' y $C$ a `curarse', tenemos que, como antes:
     P(C\mid M) < P(C\mid \neg M)
 \end{equation*}
 
-Pero, si condicionamos por el sexo, las desigualdades se invierten (inversión de Simpson, ):
+Pero, si condicionamos por el sexo, las desigualdades se invierten (inversión de Simpson, \cite{pearl2013simpson}):
 \begin{align*}
     P(C\mid M, H) &> P(C\mid \neg M, H) \\
     P(C\mid M, \neg H) &> P(C\mid \neg M, \neg H)
 \end{align*}
 
-Es decir, al no observar el sexo del paciente, la probabilidad de curarse dado que se toma la medicación es menor que la de curarse sin tomarse nada, pero \textbf{una vez hemos observado el sexo del paciente}, concluimos que sí debe tomar la medicación. Carece de sentido lógico. A esto se le conoce como la Paradoja de Simpson (recibe su nombre de Edward Simpson ).
+Es decir, al no observar el sexo del paciente, la probabilidad de curarse dado que se toma la medicación es menor que la de curarse sin tomarse nada, pero \textbf{una vez hemos observado el sexo del paciente}, concluimos que sí debe tomar la medicación. Carece de sentido lógico. A esto se le conoce como la Paradoja de Simpson (recibe su nombre de Edward Simpson ARTICULO).
 
 Si nos centramos en los números de la tabla separada por sexo vemos que los grupos no son homogéneos. Hay más mujeres que tomaron la medicina que hombres. De igual manera, más hombres no tomaron la medicina que mujeres.
 
@@ -259,7 +259,7 @@ Esto causó los datos que vemos en la tabla, donde el remedio se enfrentaba en s
     \item El que se recete el remedio a un paciente depende de su sexo.
 \end{enumerate}
 
-Por tanto, el grafo que podríamos construir sería similar al de la Figura~\ref{fig:simpson-dag}
+Por tanto, el grafo que podríamos construir sería similar al de la Figura~\ref{fig:simpson-dag}.
 
 \begin{figure}[ht]
     \centering
@@ -283,6 +283,8 @@ Por tanto, el grafo que podríamos construir sería similar al de la Figura~\ref
     \caption{Diagrama Causal (DAG) de la Paradoja de Simpson. La variable $H$ (Sexo) tiene efecto tanto en la receta del tratamiento como en la curación.}
     \label{fig:simpson-dag}
 \end{figure}
+
+
 
 
 \section{Resultados preliminares}
