@@ -173,7 +173,7 @@ Un cálculo rápido de las probabilidades condicionales nos lleva a que $P(X=1|Y
 
 Supongamos que interpretamos $X$ como `el suelo está mojado' e $Y$ como `la gente lleva paraguas'. Ahora se vuelve más claro por qué no podemos afirmar que $X = 1$ cause $Y = 1$. Incluso existiendo una relación causal entre las variables, afirmaciones de este tipo pueden no ser ciertas: supongamos ahora que interpretamos $Y$ como `ha llovido'. Sabemos de sobra que $Y = 1$ causaría $X = 1$, pero si partimos de las probabilidades condicionales, sería indistinguible decir esto de decir que $X = 1$ causa $Y = 1$. Es decir, afirmar que llover causa que el suelo esté mojado porque las variables están correlacionadas sería tan válido como afirmar que el que el suelo esté mojado cause que llueva por la misma razón.
 
-En definitiva, \textbf{$N$ variables no están causalmente relacionadas por estar correlacionadas}. Si volvemos a nuestra interpretación original de las variables $X$ e $Y$, sabemos de sobra que existe una variable $Z$ que podemos interpretar como `llueve', que \textbf{directamente} causa que el suelo esté mojado y que la gente lleve paraguas (y, en general, para cualquier par de variables $X$ e $Y$, si existe una correlación entre $X$ e $Y$ pero no hay relación causal, debe existir una variable $Z$ que explique esa correlación entre ambas~\cite{Reichenbach1956}). El propio razonamiento ya nos lleva a deducir que \textbf{no es suficiente} con los razonamientos estadísticos estándar. Debemos elaborar un cuento causal, similar a lo que se vería en la Figura~\ref{fig:dag_causal}.
+En definitiva, \textbf{$N$ variables no están causalmente relacionadas por estar correlacionadas}. Si volvemos a nuestra interpretación original de las variables $X$ e $Y$, sabemos de sobra que existe una variable $Z$ que podemos interpretar como `llueve', que \textbf{directamente} causa que el suelo esté mojado y que la gente lleve paraguas (y, en general, para cualquier par de variables $X$ e $Y$, si existe una correlación entre $X$ e $Y$ pero no hay relación causal, debe existir una variable $Z$ que explique esa correlación entre ambas~\cite{Reichenbach1956}). Esto ya nos lleva a deducir que \textbf{no es suficiente} con los razonamientos estadísticos estándar. No podemos inferir una relación causal si no asignamos un significado a las variables. Debemos elaborar un cuento causal, similar a lo que se vería en la Figura~\ref{fig:dag_causal}.
 
 \begin{figure}[h]
 \centering
@@ -234,7 +234,7 @@ Considerando estos datos, lo más sensato sería retirar de inmediato la medicac
 Si llamamos $H$ a `ser hombre' y $C$ a `curarse', tenemos que, como antes:
 
 \begin{equation*}
-    P(C|M) < P(C|\neg M)
+    P(C\mid M) < P(C\mid \neg M)
 \end{equation*}
 
 Pero, si condicionamos por el sexo, las desigualdades se invierten:
