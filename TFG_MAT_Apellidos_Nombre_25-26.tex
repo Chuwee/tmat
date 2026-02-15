@@ -290,10 +290,11 @@ Lo que deberíamos hacer entonces es tratar de mirar las variables por separado,
 
 La paradoja de Simpson también puede ocurrir en contexto de variables continuas. Supongamos que elaboramos un estudio observacional donde tratamos de averiguar cómo afecta un incremento en el poder adquisitivo al coste de vida relativo. Esperaríamos ver que, según aumenta el poder adquisitivo de una persona, disminuye el coste de vida relativo a su patrimonio.
 
-Sin embargo, observamos un gráfico como el de la Figura~\ref{fig:aggregate-simpson-scatter}. 
-\begin{figure}
+Sin embargo, observamos un gráfico como el de la Figura~\ref{fig:aggregate-simpson-scatter}. Nuestras expectativas intuitivas se ven desafiadas por la aparente correlación que existe entre mayor patrimonio y mayor coste de vida relativo.
+
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.75\linewidth]{simpson-scatter-normal.png}
+    \includegraphics[width=1\linewidth]{simpson-scatter-normal.png}
     \caption{Datos de comparación de poder adquisitivo agregados}
     \label{fig:aggregate-simpson-scatter}
 \end{figure}
@@ -302,22 +303,7 @@ Sin embargo, observamos un gráfico como el de la Figura~\ref{fig:aggregate-simp
 
 \appendix 
 \chapter{Resultados auxiliares}
-En este apéndice recopilamos algunas definiciones y lemas auxiliares que se utilizan a lo largo del texto. Aunque la mayoría de estos resultados son bien conocidos, los incluimos aquí para mayor claridad y comodidad del lector. Comenzamos con una desigualdad elemental que será empleada repetidamente en las demostraciones de los teoremas principales.
 
-\begin{lema}[Desigualdad básica]
-Sean $a,b \in \mathbb{R}$ con $b \neq 0$. Entonces
-\[
-\left| \frac{a}{b} \right| \leq \frac{|a|}{|b|}.
-\]
-Además, la igualdad se cumple si y solo si $ab \geq 0$.
-\end{lema}
-
-\begin{proof}
-La prueba se deduce directamente de la propiedad multiplicativa del valor absoluto, es decir, $|ab| = |a||b|$ para todo $a,b \in \mathbb{R}$. Dividiendo ambos lados por $|b|^2$ obtenemos la desigualdad. La caracterización de la igualdad es inmediata.
-\end{proof}
-
-
-\chapter{Otro apéndice}
 
 \printbibliography
 
