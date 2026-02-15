@@ -286,8 +286,17 @@ Por tanto, el grafo que podríamos construir sería similar al de la Figura~\ref
 
 Al ser menos probable que una mujer se cure, independientemente de la medicación que tome, lo más razonable es separar los datos. De cualquier otra manera, nuestros datos presentan una `competición' de variables, donde el tratamiento es menos determinante que el sexo del individuo.
 
-Lo que deberíamos hacer entonces es tratar de mirar las variables por separado, es decir, fijar las dos, o lo que es lo mismo, considerar las probabilidades condicionadas. 
+Lo que deberíamos hacer entonces es tratar de mirar las variables por separado, es decir, fijar las dos, o lo que es lo mismo, considerar las probabilidades condicionadas. Aquí es donde nuestra intuición es correcta: los datos más específicos nos dan la interpretación correcta.
 
+La paradoja de Simpson también puede ocurrir en contexto de variables continuas. Supongamos que elaboramos un estudio observacional donde tratamos de averiguar cómo afecta un incremento en el poder adquisitivo al coste de vida relativo. Esperaríamos ver que, según aumenta el poder adquisitivo de una persona, disminuye el coste de vida relativo a su patrimonio.
+
+Sin embargo, observamos un gráfico como el de la Figura~\ref{fig:}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{simpson-scatter-normal.png}
+    \caption{Datos de comparación de poder adquisitv}
+    \label{fig:aggregate-simpson-scatter}
+\end{figure}
 \section{Resultados preliminares}
 
 Lorem ipsum dolor sit amet, Teorema \ref{teor1}, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
