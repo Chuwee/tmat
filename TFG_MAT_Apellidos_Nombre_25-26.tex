@@ -335,13 +335,12 @@ es un grafo dirigido con vértices $V$ y aristas $E$.
 Decimos que el grafo no dirigido de $G$ es un grafo $G' = (V, E')$ tal que $E \subseteq E'$ y $(x_i, x_j) \in E \rightarrow (x_j, x_i) \in E'$.
 \end{defin}
 
-\begin{defin}
-Dado un grafo $G = (V, E)$ definimos el conjunto $C_G$ de la siguiente forma
+\begin{defin}[Camino]
+Dado un grafo dirigido $G=(V,E)$, un \textbf{camino} (o sendero) entre dos nodos $X$ e $Y$ es una secuencia de vértices distintos $(V0,V1,…,Vk)$ tal que:
 \begin{enumerate}
-    \item $E \subseteq C_G$
-    \item $(x_i, x_j), (x_j, x_k) \in C_G \rightarrow (x_i, x_k) \in C_G$
+\item $V_0=X$ y $V_k=Y$.
+\item Para cada $i \in \{0,\ldots,k−1\}$, los vértices son adyacentes en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$ o bien $(V_{i+1},V_i)\in E$.
 \end{enumerate}
-Si $(x_i, x_j) \in C_G$ decimos que existe un \textbf{camino} entre $x_i$ y $x_j$. $C_G$ es el \textbf{conjunto de caminos} del grafo $G$.
 \end{defin}
 
 \begin{defin}
