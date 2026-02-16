@@ -323,9 +323,18 @@ Supongamos $I \subseteq \mathbb{N}$ un conjunto finito o numerable. Digamos que 
 \begin{itemize}
     \item $B_i \in \mathcal{F}$ para todo $i \in I$.
     \item $i \neq j \rightarrow B_i \cap B_j = \emptyset$.
-    
+    \item $\bigcup_{i \in I} B_i = \Omega$.
+    \item $P(B_i) > 0$ para todo $i \in I$.
 \end{itemize}
+Entonces, para cualquier suceso $A \in \mathcal{F}$:
+\begin{equation*}
+P(A) = \sum_{i \in I} P(A\mid B_i) P(B_i)
+\end{equation*}
 \end{teor}
+
+\begin{proof}
+Ver Apéndice 
+\end{proof}
 
 \section{Teoría de grafos}
 \begin{defin}[Grafo dirigido]
@@ -397,6 +406,7 @@ Decimos que un grafo dirigido $G = (V, E)$ es una estructura causal en la que ca
 
 \appendix 
 \chapter{Definiciones básicas de grafos dirigidos}
+\label{app:demo}
 
 \begin{defin}
 Decimos que el par $G = (V, E)$ donde 
