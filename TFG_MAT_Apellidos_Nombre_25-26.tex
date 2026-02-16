@@ -329,13 +329,12 @@ es un grafo dirigido con vértices $V$ y aristas $E$.
 
 \textbf{Notación:} para todo par $(X_i, X_j) \in E$, diremos $X_i \rightarrow X_j$
 
-\begin{defin}
-Decimos que el par $G = (V, E)$ donde 
+\begin{defin}[Parentesco]
+Para todo vértice del grafo $X_i$, definimos
 \begin{itemize}
-    \item $V = \{X_1, X_2, \ldots, X_n \mid n \in \mathbb{N}\}$
-    \item $E \subseteq V \times V$ es un subconjunto de los pares ordenados con elementos en $V$.
+\item Los \textbf{padres} de $X_i$: $\text{PA}(X_i)=\{X_j \in V \mid X_j \rightarrow X_i \}$
+\item Los \textbf{hijos} de $X_i$: $\text{CH}(X_i)=\{X_j \in V \mid X_i \rightarrow X_j \}$
 \end{itemize}
-es un grafo dirigido con vértices $V$ y aristas $E$.
 \end{defin}
 
 \begin{defin}[Camino]
@@ -359,6 +358,15 @@ Un \textbf{ciclo dirigido} es una secuencia de vértices $(V_0, V_1, \ldots, V_k
 \begin{enumerate}
     \item $(V_0, \ldots, V_{k-1})$ es un camino dirigido (vértices distintos).
     \item $V_0 = V_k$ (el vértice inicial coincide con el final).
+\end{enumerate}
+\end{defin}
+
+\begin{defin}[Estructuras topológicamente elementales]
+Sean $X, Y, Z$ vértices de un grafo. Todo camino o sendero donde $Z$ sea el nodo intermedio entre $X$ e $Y$ se puede clasificar en una de las tres estructuras topológicas elementales:
+\begin{enumerate}
+    \item Diremos que hay una \textbf{cadena} si el camino tiene estructura $X \rightarrow Z \rightarrow Y$.
+    \item Diremos que hay una \textbf{bifurcación (\textit{fork})} si el camino tiene estructura $X \leftarrow Z \rightarrow Y$.
+    \item Diremos que hay una \textbf{colisión (\textit{collider})} si el camino tiene estructura $X \rightarrow Z \leftarrow Y$
 \end{enumerate}
 \end{defin}
 
