@@ -332,12 +332,16 @@ es un grafo dirigido con vértices $V$ y aristas $E$.
 \end{defin}
 
 \begin{defin}
+Decimos que el grafo no dirigido de $G$ es un grafo $G' = (V, E')$ tal que $E \subseteq E'$ y $(x_i, x_j) \in E \rightarrow (x_j, x_i) \in E'$.
+\end{defin}
+
+\begin{defin}
 Dado un grafo $G = (V, E)$ definimos el conjunto $C_G$ de la siguiente forma
 \begin{enumerate}
     \item $E \subseteq C_G$
     \item $(x_i, x_j), (x_j, x_k) \in C_G \rightarrow (x_i, x_k) \in C_G$
 \end{enumerate}
-Si $(x_i, x_j) \in C_G$ decimos que existe un \textbf{camino} entre $x_i$ y $x_j$.
+Si $(x_i, x_j) \in C_G$ decimos que existe un \textbf{camino} entre $x_i$ y $x_j$. $C_G$ es el \textbf{conjunto de caminos} del grafo $G$.
 \end{defin}
 
 \begin{defin}
