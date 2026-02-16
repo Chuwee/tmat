@@ -124,26 +124,6 @@ $\mathrm{Var}(X)$ & Varianza de $X$ \\
 
 %%%A partir de aquí el cuerpo del trabajo  %%%%%%%
 
-\chapter*{Introducción}  % Capítulo sin numeración
-\addcontentsline{toc}{chapter}{Introducción}  % Agrega la introducción al índice
-testing testing inasdfas
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-\begin{itemize}\itemsep=0pt
-\item
-Integer tincidunt.
-
-\item
-Cras dapibus.
-\item
-Vivamus elementum semper nisi.
-\item
-Aenean vulputate eleifend tellus.
-\end{itemize}
-
-Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc. Véanse \cite{Abel} y \cite{S-W}.
-
-
-
 \chapter{Introducción}\label{chap1}
 
 
@@ -317,6 +297,8 @@ El objetivo de este trabajo es establecer una base de entendimiento de los méto
 En particular, buscamos analizar las limitaciones de la estadística clásica para extraer relaciones causales, formalizar la teoría de los \textit{Directed Acyclic Graphs} (\textbf{DAGs}) en el contexto causal, definir con rigor los conceptos de \textit{d-separation} y \textbf{bloqueos}, establecer distinciones entre la probabilidad condicionada tradicional $P(Y \mid X)$ y $P(Y \mid do(X))$, presentar las reglas del $do$-Calculus, explorar los conceptos de \textit{Back-door criterion} y \textit{Front-door criterion}.
 
 \chapter{Bases conceptuales}
+\section{Conceptos de probabilidad}
+A lo largo del documento, asumimos siempre que estamos en un espacio de probabilidad $(\Omega, \mathcal{F}, P)$, con $\Omega$ el espacio muestral, $\mathcal{F}$ su $\sigma-$álgebra
 \section{Teoría de grafos}
 \begin{defin}[Grafo dirigido]
 Decimos que el par $G = (V, E)$ donde 
