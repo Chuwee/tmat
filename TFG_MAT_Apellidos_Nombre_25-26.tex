@@ -333,7 +333,7 @@ P(A) = \sum_{i \in I} P(A\mid B_i) P(B_i)
 \end{teor}
 
 \begin{proof}
-Ver Apéndice 
+Ver Apéndice~\ref{app:demo}
 \end{proof}
 
 \section{Teoría de grafos}
@@ -405,46 +405,12 @@ Decimos que un grafo dirigido $G = (V, E)$ es una estructura causal en la que ca
 \clearpage
 
 \appendix 
-\chapter{Definiciones básicas de grafos dirigidos}
+\chapter{Demostración de la Ley de Probabilidad Total}
 \label{app:demo}
 
-\begin{defin}
-Decimos que el par $G = (V, E)$ donde 
-\begin{itemize}
-    \item $V = \{x_1, x_2, \ldots, x_n \mid n \in \mathbb{N}\}$
-    \item $E \subseteq V \times V$ es un subconjunto de los pares ordenados con elementos en $V$.
-\end{itemize}
-es un grafo dirigido con vértices $V$ y aristas $E$.
-\end{defin}
-
-\begin{defin}[Camino]
-Dado un grafo dirigido $G=(V,E)$, un \textbf{camino} (o sendero) entre dos nodos $X$ e $Y$ es una secuencia de vértices distintos $(V_0,V_1,\ldots,V_k)$ tal que:
-\begin{enumerate}
-\item $V_0=X$ y $V_k=Y$.
-\item Para cada $i \in \{0,\ldots,k-1\}$, los vértices son adyacentes en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$ o bien $(V_{i+1},V_i)\in E$.
-\end{enumerate}
-\end{defin}
-
-\begin{defin}[Camino dirigido]
-Dado un grafo dirigido $G=(V,E)$, un \textbf{camino dirigido} entre dos nodos $X$ e $Y$ es una secuencia de vértices distintos $(V_0,V_1,\ldots,V_k)$ tal que:
-\begin{enumerate}
-\item $V_0=X$ y $V_k=Y$.
-\item Para cada $i \in \{0,\ldots,k-1\}$, los vértices están conectados en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$.
-\end{enumerate}
-\end{defin}
-
-\begin{defin}[Ciclo Dirigido]
-Un \textbf{ciclo dirigido} es una secuencia de vértices $(V_0, V_1, \ldots, V_k)$ con $k \geq 1$ tal que:
-\begin{enumerate}
-    \item $(V_0, \ldots, V_{k-1})$ es un camino dirigido (vértices distintos).
-    \item $V_0 = V_k$ (el vértice inicial coincide con el final).
-\end{enumerate}
-\end{defin}
-
-\begin{defin}[Grafo Acíclico Dirigido - DAG]
-Un grafo dirigido $G = (V, E)$ se dice \textbf{acíclico} si no contiene ningún ciclo dirigido.
-A este tipo de estructuras se las conoce universalmente por sus siglas en inglés: \textbf{DAG} (\textit{Directed Acyclic Graph}).
-\end{defin}
+\begin{proof}
+Como $A \subseteq \Omega$, $A = A \cap \Omega$
+\end{proof}
 
 
 \printbibliography
