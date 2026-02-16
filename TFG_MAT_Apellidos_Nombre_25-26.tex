@@ -311,13 +311,21 @@ P(A \mid B) = \frac{P(A \cap B)}{P(B)}
 \end{equation*}
 \end{defin}
 
-
 \begin{defin}[Independencia condicional]
 Decimos que las variables $X$ e $Y$ son condicionalmente independientes dado $Z$ si
 \begin{equation*}
 P(X, Y \mid Z) = P(X\mid Z)P(Y\mid Z)
 \end{equation*}
 \end{defin}
+
+\begin{teor}[Ley de la probabilidad total]
+Supongamos $I \subseteq \mathbb{N}$ un conjunto finito o numerable. Digamos que los conjuntos $B_i$ con $i \in I$ son tales que:
+\begin{itemize}
+    \item $B_i \in \mathcal{F}$ para todo $i \in I$.
+    \item $i \neq j \rightarrow B_i \cap B_j = \emptyset$.
+    
+\end{itemize}
+\end{teor}
 
 \section{Teoría de grafos}
 \begin{defin}[Grafo dirigido]
