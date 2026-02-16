@@ -316,6 +316,8 @@ El objetivo de este trabajo es establecer una base de entendimiento de los méto
 
 En particular, buscamos analizar las limitaciones de la estadística clásica para extraer relaciones causales, formalizar la teoría de los \textit{Directed Acyclic Graphs} (\textbf{DAGs}) en el contexto causal, definir con rigor los conceptos de \textit{d-separation} y \textbf{bloqueos}, establecer distinciones entre la probabilidad condicionada tradicional $P(Y \mid X)$ y $P(Y \mid do(X))$, presentar las reglas del $do$-Calculus, explorar los conceptos de \textit{Back-door criterion} y \textit{Front-door criterion}.
 
+\chapter{Modelos Causales Estructurales}
+
 
 \clearpage
 
@@ -347,8 +349,17 @@ Dado un grafo dirigido $G=(V,E)$, un \textbf{camino dirigido} entre dos nodos $X
 \end{enumerate}
 \end{defin}
 
-\begin{defin}
-Decimos que el grafo $G = (V, E)$ es acíclico si 
+\begin{defin}[Ciclo Dirigido]
+Un \textbf{ciclo dirigido} es una secuencia de vértices $(V_0, V_1, \ldots, V_k)$ con $k \geq 1$ tal que:
+\begin{enumerate}
+    \item $(V_0, \ldots, V_{k-1})$ es un camino dirigido (vértices distintos).
+    \item $V_0 = V_k$ (el vértice inicial coincide con el final).
+\end{enumerate}
+\end{defin}
+
+\begin{defin}[Grafo Acíclico Dirigido - DAG]
+Un grafo dirigido $G = (V, E)$ se dice \textbf{acíclico} si no contiene ningún ciclo dirigido.
+A este tipo de estructuras se las conoce universalmente por sus siglas en inglés: \textbf{DAG} (\textit{Directed Acyclic Graph}).
 \end{defin}
 
 
