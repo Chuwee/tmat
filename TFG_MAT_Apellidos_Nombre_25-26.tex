@@ -304,6 +304,21 @@ A lo largo del documento, asumimos siempre que estamos en un espacio de probabil
 Una variable aleatoria es una función $X:\Omega \rightarrow \mathbb{R}$ tal que es medible, es decir, que cada preimagen de $X$ sobre un elemento de la $\sigma-$álgebra de Borel es un elemento de $\mathcal{F}$.
 \end{defin}
 
+\begin{defin}[Probabilidad condicionada]
+Sean $A$ y $B$ dos sucesos tales que $P(B) > 0$. Definimos la probabilidad de $A$ condicionada a $B$ como
+\begin{equation*}
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+\end{equation*}
+\end{defin}
+
+
+\begin{defin}[Independencia condicional]
+Decimos que las variables $X$ e $Y$ son condicionalmente independientes dado $Z$ si
+\begin{equation*}
+P(X, Y \mid Z) = P(X\mid Z)P(Y\mid Z)
+\end{equation*}
+\end{defin}
+
 \section{Teoría de grafos}
 \begin{defin}[Grafo dirigido]
 Decimos que el par $G = (V, E)$ donde 
