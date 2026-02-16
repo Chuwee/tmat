@@ -320,16 +320,169 @@ En particular, buscamos analizar las limitaciones de la estadística clásica pa
 \clearpage
 
 \appendix 
-\chapter{Definiciones básicas de grafos}
-
+\chapter{Definiciones básicas de grafos dirigidos}
 
 \begin{defin}
-Decimos que $G = (V, E)$ es el grafo compuesto por los vértices en $V$ y las aristas en $E$.
+Decimos que el par $G = (V, E)$ donde 
 \begin{itemize}
-    \item $V = \{x_1, x_2, \ldots, x_n \mid n \in \mathbb{N}\}$ es un conjunto de $n$ vértices.
-    \item $E \subseteq V \prod V$
-\end{itemize} y $E \subseteq \{(x_i, x_j) \mid i, j \in \mathbb{N}, i, j \leq n\}$ es el conjunto de las aristas. Diremos que hay una arista entre $x_i$ y $x_j$ si $(x_i, x_j) \in E$.
+    \item $V = \{x_1, x_2, \ldots, x_n \mid n \in \mathbb{N}\}$
+    \item $E \subseteq V \times V$ es un subconjunto de los pares ordenados con elementos en $V$.
+\end{itemize}
+es un grafo dirigido con vértices $V$ y aristas $E$.
 \end{defin}
+
+#set page(
+  paper: "a4",
+  margin: (x: 1cm, y: 1cm), // Márgenes reducidos al mínimo profesional
+)
+
+#set text(
+  font: "New Computer Modern",
+  size: 9pt, // Tamaño de letra reducido para asegurar 1 página
+  lang: "en"
+)
+
+#set par(leading: 0.5em) // Interlineado un poco más ajustado
+
+// --- Funciones de Estilo ---
+
+#let section-header(title) = {
+  v(0.6em)
+  text(weight: "bold", size: 11pt, title)
+  v(-0.2em)
+  line(length: 100%, stroke: 0.5pt + black)
+  v(0.2em)
+}
+
+#let cv-item(title, subtitle, date, content) = {
+  grid(
+    columns: (1fr, auto),
+    align(left)[
+      #text(weight: "bold", title) #h(1em) #text(style: "italic", subtitle)
+    ],
+    align(right)[
+      #text(weight: "medium", date)
+    ]
+  )
+  if content != [] {
+    v(0.1em)
+    content
+  }
+  v(0.4em)
+}
+
+// --- Contenido del CV ---
+
+// ENCABEZADO COMPACTO
+#align(center)[
+  #text(size: 16pt, weight: "bold")[Ignacio de Miguel] \
+  #v(0.2em)
+  Madrid, Spain | +34 601 307 429 | ignacio.demiguel.20\@retamar.es \
+  #link("https://www.linkedin.com/in/ignacio-de-miguel/")[LinkedIn: ignacio-de-miguel] | #link("https://github.com/Chuwee")[GitHub: Chuwee]
+]
+
+// EXPERIENCIA
+#section-header("Experience")
+
+#cv-item(
+  "Fever",
+  "Excellence Scholarship / Software Engineering",
+  "Sept 2025 - Present",
+)[
+  - Selected for the prestigious Excellence Scholarship program.
+  - Contributing to high-impact technical solutions within a fast-paced engineering environment.
+]
+
+// EDUCACIÓN
+#section-header("Education")
+
+#cv-item(
+  "Universidad Autónoma de Madrid",
+  "Double Degree in Maths & CS",
+  "Sept 2020 - Current",
+)[
+  - Average mark: **8.1/10**. Skills: Mathematical thinking and broad computational abilities.
+]
+
+#cv-item(
+  "Imperial College London",
+  "Erasmus (Mathematics focus)",
+  "Sept 2023 - Aug 2024",
+)[
+  - Average mark: 70/100. Focused on PDEs, Logic, Measure Theory, Game Theory, Galois Theory.
+]
+
+#cv-item(
+  "Colegio Retamar",
+  "Bachillerato + IB",
+  "Sept 2008 - June 2020",
+)[
+  - Final Grades: 10/10 (Honors). EvAU: 13.63/14 (Top 1%).
+]
+
+// PROYECTOS
+#section-header("Projects")
+
+#cv-item(
+  "Safebox",
+  "Cybersecurity & Local Encryption Vault",
+  "Personal Project",
+)[
+  - Architected a zero-knowledge local storage solution for sensitive plaintext data using advanced client-side encryption algorithms, guaranteeing data confidentiality and integrity against unauthorized access.
+  - **Focus:** Cryptography, Data Privacy, Secure Local Storage.
+]
+
+#cv-item(
+  "Keybutler",
+  "Security & Password Management",
+  link("https://github.com/Chuwee/keybutler"),
+)[
+  - Developed a Chromium extension to solve data breaches using user-specified algorithms for password generation.
+  - **Tools:** JavaScript. Creates unique, complex passwords based on domain names.
+]
+
+#cv-item(
+  "WedPlanner",
+  "Event Organization Tool",
+  link("https://github.com/Chuwee/WedPlanning"),
+)[
+  - AI-powered tool (Whisper, GPT) to build guest lists/table plans from audio, reducing workload by 20%.
+  - **Tools:** Python, Whisper, GPT, SQL.
+]
+
+// CUALIFICACIONES Y PREMIOS
+#section-header("Qualifications and Awards")
+
+#cv-item(
+  "CPE - C2 Proficiency (Grade B)",
+  "Cambridge English",
+  "December 2020",
+)[] // Sin descripción para ahorrar espacio, el título es autoexplicativo
+
+#cv-item(
+  "Academic Excellence Award",
+  "Comunidad de Madrid",
+  "April 2022",
+)[
+  - Awarded for achieving one of the top scores in university access exams.
+]
+
+// HABILIDADES
+#section-header("Skills")
+#v(0.2em)
+- **Analytical:** Critical thinking, data analysis, mathematical modelling.
+- **Technologies:** PostgreSQL, Google Cloud, VS Code, Git, C, Java, Python, JavaScript, SQL.
+- **Soft Skills:** Problem solving, leadership, teamwork, strategic planning.
+
+// INTERESES
+#section-header("Interests")
+#v(0.2em)
+Passionate about mathematics, computing, and self-directed learning. Engaged in sports (skiing, weightlifting, swimming). All projects are self-directed, demonstrating leadership and task parallelization.
+
+\begin{defin}
+Decimos que el grafo $G = (V, E)$ es acíclico si
+\end{defin}
+
 
 
 \printbibliography
