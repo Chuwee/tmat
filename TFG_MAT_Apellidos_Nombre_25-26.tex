@@ -331,22 +331,25 @@ Decimos que el par $G = (V, E)$ donde
 es un grafo dirigido con vértices $V$ y aristas $E$.
 \end{defin}
 
-\begin{defin}
-Decimos que el grafo no dirigido de $G$ es un grafo $G' = (V, E')$ tal que $E \subseteq E'$ y $(x_i, x_j) \in E \rightarrow (x_j, x_i) \in E'$.
-\end{defin}
-
 \begin{defin}[Camino]
-Dado un grafo dirigido $G=(V,E)$, un \textbf{camino} (o sendero) entre dos nodos $X$ e $Y$ es una secuencia de vértices distintos $(V0,V1,…,Vk)$ tal que:
+Dado un grafo dirigido $G=(V,E)$, un \textbf{camino} (o sendero) entre dos nodos $X$ e $Y$ es una secuencia de vértices distintos $(V_0,V_1,\ldots,V_k)$ tal que:
 \begin{enumerate}
 \item $V_0=X$ y $V_k=Y$.
-\item Para cada $i \in \{0,\ldots,k−1\}$, los vértices son adyacentes en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$ o bien $(V_{i+1},V_i)\in E$.
+\item Para cada $i \in \{0,\ldots,k-1\}$, los vértices son adyacentes en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$ o bien $(V_{i+1},V_i)\in E$.
+\end{enumerate}
+\end{defin}
+
+\begin{defin}[Camino dirigido]
+Dado un grafo dirigido $G=(V,E)$, un \textbf{camino dirigido} entre dos nodos $X$ e $Y$ es una secuencia de vértices distintos $(V_0,V_1,\ldots,V_k)$ tal que:
+\begin{enumerate}
+\item $V_0=X$ y $V_k=Y$.
+\item Para cada $i \in \{0,\ldots,k-1\}$, los vértices están conectados en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$.
 \end{enumerate}
 \end{defin}
 
 \begin{defin}
-Decimos que el grafo $G = (V, E)$ es acíclico si
+Decimos que el grafo $G = (V, E)$ es acíclico si 
 \end{defin}
-
 
 
 \printbibliography
