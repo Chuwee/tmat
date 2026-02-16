@@ -316,8 +316,56 @@ El objetivo de este trabajo es establecer una base de entendimiento de los méto
 
 En particular, buscamos analizar las limitaciones de la estadística clásica para extraer relaciones causales, formalizar la teoría de los \textit{Directed Acyclic Graphs} (\textbf{DAGs}) en el contexto causal, definir con rigor los conceptos de \textit{d-separation} y \textbf{bloqueos}, establecer distinciones entre la probabilidad condicionada tradicional $P(Y \mid X)$ y $P(Y \mid do(X))$, presentar las reglas del $do$-Calculus, explorar los conceptos de \textit{Back-door criterion} y \textit{Front-door criterion}.
 
-\chapter{Modelos Causales Estructurales}
-\section{Bases conceptuales}
+\chapter{Bases conceptuales}
+\section{Teoría de grafos}
+\begin{defin}[Grafo dirigido]
+Decimos que el par $G = (V, E)$ donde 
+\begin{itemize}
+    \item $V = \{X_1, X_2, \ldots, X_n \mid n \in \mathbb{N}\}$
+    \item $E \subseteq V \times V$ es un subconjunto de los pares ordenados con elementos en $V$.
+\end{itemize}
+es un grafo dirigido con vértices $V$ y aristas $E$.
+\end{defin}
+
+\textbf{Notación:} para todo par $(X_i, X_j) \in E$, diremos $X_i \rightarrow X_j$
+
+\begin{defin}
+Decimos que el par $G = (V, E)$ donde 
+\begin{itemize}
+    \item $V = \{X_1, X_2, \ldots, X_n \mid n \in \mathbb{N}\}$
+    \item $E \subseteq V \times V$ es un subconjunto de los pares ordenados con elementos en $V$.
+\end{itemize}
+es un grafo dirigido con vértices $V$ y aristas $E$.
+\end{defin}
+
+\begin{defin}[Camino]
+Dado un grafo dirigido $G=(V,E)$, un \textbf{camino} (o sendero) entre dos nodos $X$ e $Y$ es una secuencia de vértices distintos $(V_0,V_1,\ldots,V_k)$ tal que:
+\begin{enumerate}
+\item $V_0=X$ y $V_k=Y$.
+\item Para cada $i \in \{0,\ldots,k-1\}$, los vértices son adyacentes en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$ o bien $(V_{i+1},V_i)\in E$.
+\end{enumerate}
+\end{defin}
+
+\begin{defin}[Camino dirigido]
+Dado un grafo dirigido $G=(V,E)$, un \textbf{camino dirigido} entre dos nodos $X$ e $Y$ es una secuencia de vértices distintos $(V_0,V_1,\ldots,V_k)$ tal que:
+\begin{enumerate}
+\item $V_0=X$ y $V_k=Y$.
+\item Para cada $i \in \{0,\ldots,k-1\}$, los vértices están conectados en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$.
+\end{enumerate}
+\end{defin}
+
+\begin{defin}[Ciclo Dirigido]
+Un \textbf{ciclo dirigido} es una secuencia de vértices $(V_0, V_1, \ldots, V_k)$ con $k \geq 1$ tal que:
+\begin{enumerate}
+    \item $(V_0, \ldots, V_{k-1})$ es un camino dirigido (vértices distintos).
+    \item $V_0 = V_k$ (el vértice inicial coincide con el final).
+\end{enumerate}
+\end{defin}
+
+\begin{defin}[Grafo Acíclico Dirigido - DAG]
+Un grafo dirigido $G = (V, E)$ se dice \textbf{acíclico} si no contiene ningún ciclo dirigido.
+A este tipo de estructuras se las conoce universalmente por sus siglas en inglés: \textbf{DAG} (\textit{Directed Acyclic Graph}).
+\end{defin}
 
 \begin{defin}[Relación funcional]
 
