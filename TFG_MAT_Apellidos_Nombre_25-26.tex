@@ -298,7 +298,12 @@ En particular, buscamos analizar las limitaciones de la estadística clásica pa
 
 \chapter{Bases conceptuales}
 \section{Conceptos de probabilidad}
-A lo largo del documento, asumimos siempre que estamos en un espacio de probabilidad $(\Omega, \mathcal{F}, P)$, con $\Omega$ el espacio muestral, $\mathcal{F}$ su $\sigma-$álgebra
+A lo largo del documento, asumimos siempre que estamos en un espacio de probabilidad $(\Omega, \mathcal{F}, P)$, con $\Omega$ el espacio muestral, $\mathcal{F}$ su $\sigma-$álgebra y $P:\mathcal{F} \rightarrow \mathbb{R}$ la función de medida de probabilidad que satisface los tres axiomas de Kolmogorov.
+
+\begin{defin}[Variable aleatoria]
+Una variable aleatoria es una función $X:\Omega \rightarrow \mathbb{R}$ tal que es medible, es decir, que cada preimagen de $X$ sobre un elemento de la $\sigma-$álgebra de Borel es un elemento de $\mathcal{F}$.
+\end{defin}
+
 \section{Teoría de grafos}
 \begin{defin}[Grafo dirigido]
 Decimos que el par $G = (V, E)$ donde 
