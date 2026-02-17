@@ -395,11 +395,6 @@ Sean $X, Y, Z$ vértices de un grafo. Todo camino o sendero donde $Z$ sea el nod
 Un grafo dirigido $G = (V, E)$ se dice \textbf{acíclico} si no contiene ningún ciclo dirigido.
 A este tipo de estructuras se las conoce universalmente por sus siglas en inglés: \textbf{DAG} (\textit{Directed Acyclic Graph}).
 \end{defin}
-
-\begin{defin}[Estructura causal]
-Decimos que un grafo dirigido $G = (V, E)$ es una estructura causal en la que cada nodo de $V$ corresponde a una variable aleatoria, y cada arista de $E$ corresponde a una relación funcional entre las variables correspondientes.
-\end{defin}
-
 \chapter{Modelos Causales Estructurales}
 
 De manera intuitiva, es útil contar con variables aleatorias para definir relaciones causales, pues podemos expresarlas como transformaciones numéricas. Surge de manera natural tratar causas entre variables aleatorias como dependencias por relaciones funcionales. Así pues, diremos que una variable está causada por otra \textbf{si existe una relación funcional estructurada} entre ambas.
@@ -412,6 +407,7 @@ X_i := f_i(\text{PA}_i, \text{U}_i) = f_i(P_1, \ldots, P_n, U_1, \ldots, U_n)
 \end{equation*}
 
 Y diremos que $f_i$ es la ecuación que determina el valor de $X_i$ dados $\text{PA}_i$ y $\text{U}_i$. De manera coloquial, diremos que las variables de $\text{PA}_i$ causan el valor de $X_i$ con factores externos $U_i$.
+\label{def:eq-estructural}
 \end{defin}
 
 Aquí utilizamos dos conjuntos de variables distintos. No es coincidencia haber escogido $\text{PA}$ para denotar las variables que `causan' el valor de $X_i$, pues se alinean con la Definición~\ref{def:parentesco}, con un matiz que veremos más adelante. Estas son las variables que tenemos en cuenta en nuestros modelos causales. Utilizamos el conjunto de variables $U$ para denotar a variables generadas por factores externos a lo que incluimos en nuestro modelo. Es entonces natural definir ahora el `puente' a los \textbf{modelos causales estructurales}. Diremos que existe una \textbf{relación funcional} entre un nodo y sus padres. Notemos que utilizamos $:=$ puesto que $X_i$ es una consecuencia de los valores de los que depende, pero los valores de los que depende no cambian si cambia $X_i$.
@@ -427,7 +423,9 @@ Un modelo causal es un triple
 \end{equation*}
 donde
 \begin{enumerate}
-    \item $U$ es un conjunto de variables sin otras que apunten a ellas. Por así decirlo, son `incausadas', o su causa no está dentro del modelo.
+    \item $U$ es un conjunto de variables sin otras que apunten a ellas. Por así decirlo, son `incausadas', o su causa no está contemplada dentro del modelo. Son llamadas `predeterminadas' o `exógenas'.
+    \item $V$ es un conjunto de variables endógenas, es decir, que su causa se contempla dentro del modelo. Su causa viene determinada por variables en $V \cup U$.
+    \item $F$ es un conjunto de ecuaciones estructurales de acuerdo a lo definido en 
 \end{enumerate}
 \end{defin}
 
