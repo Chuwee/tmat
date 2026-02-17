@@ -338,7 +338,7 @@ Ver Apéndice~\ref{app:demo}
 
 \section{Teoría de grafos}
 \begin{defin}[Grafo dirigido]
-Decimos que el par $G = (V, E)$ donde 
+Decimos que el par $G = \langle V, E\rangle$ donde 
 \begin{itemize}
     \item $V = \{X_1, X_2, \ldots, X_n \mid n \in \mathbb{N}\}$
     \item $E \subseteq V \times V$ es un subconjunto de los pares ordenados con elementos en $V$.
@@ -415,7 +415,7 @@ Y diremos que $f_i$ es la ecuación que determina el valor de $X_i$ dados $\text
 Aquí utilizamos dos conjuntos de variables distintos. No es coincidencia haber escogido $\text{PA}$ para denotar las variables que `causan' el valor de $X_i$, pues se alinean con la Definición~\ref{def:parentesco}, con un matiz que veremos más adelante. Estas son las variables que tenemos en cuenta en nuestros modelos causales. Utilizamos el conjunto de variables $U$ para denotar a variables generadas por factores externos a lo que incluimos en nuestro modelo. Es entonces natural definir ahora el `puente' a los \textbf{modelos causales estructurales}. Diremos que existe una \textbf{relación funcional} entre un nodo y sus padres. Notemos que utilizamos $:=$ puesto que $X_i$ es una consecuencia de los valores de los que depende, pero los valores de los que depende no cambian si cambia $X_i$.
 
 \begin{defin}[Estructura causal]
-Diremos que una estructura causal de un conjunto de variables $V$ es un DAG en el que cada nodo está asociado a una variable de $V$, y cada arista repreesenta una relación funcional entre un nodo y sus padres.
+Diremos que una estructura causal de un conjunto de variables $V$ es un DAG en el que cada nodo está asociado a una variable de $V$, y cada arista representa una relación funcional entre un nodo y sus padres.
 \end{defin}
 
 \begin{defin}[Modelo causal o modelo estructural causal (SCM)]
@@ -433,7 +433,7 @@ donde
 Aquí vemos la distinción entre $\text{PA}_i$ y lo que definimos. En realidad, en el contexto de un modelo estructural, $\text{PA}_i = \text{PA}(V_i) \cap V$.
 
 \section{Grafo asociado a un Modelo Estructural Causal}
-Como ya veníamos anticipando, podemos exponer el isomorfismo entre un grafo y un modelo estructural causal. Sea $M = \langle U, V, F\rangle$ un 
+Como ya veníamos anticipando, podemos exponer el isomorfismo entre un grafo y un modelo estructural causal. Sea $M = \langle U, V, F\rangle$ un SCM. Definimos su estructura causal asociada (o DAG asociado) como $G = \langle V \cup U, E\rangle$, donde $E = \{(C, V_i)\}$
 
 \clearpage
 
