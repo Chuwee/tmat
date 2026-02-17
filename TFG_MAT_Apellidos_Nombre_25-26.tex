@@ -433,7 +433,9 @@ donde
 Aquí vemos la distinción entre $\text{PA}_i$ y lo que definimos. En realidad, en el contexto de un modelo estructural, $\text{PA}_i = \text{PA}(V_i) \cap V$.
 
 \section{Grafo asociado a un Modelo Estructural Causal}
-Como ya veníamos anticipando, podemos exponer el isomorfismo entre un grafo y un modelo estructural causal. Sea $M = \langle U, V, F\rangle$ un SCM. Definimos su estructura causal asociada (o DAG asociado) como $G = \langle V \cup U, E\rangle$, donde $E = \{(C, V_i)\}$
+Como ya veníamos anticipando, podemos exponer el isomorfismo entre un grafo y un modelo estructural causal. Sea $M = \langle U, V, F\rangle$ un SCM. Definimos su estructura causal asociada (o DAG asociado) como $G = \langle V \cup U,\bigcup_{i\in \{1, \ldots,n \}} E_i \rangle$, donde $E_i = \{(C, V_i) \mid C \in \text{PA}_i \cup U_i\}$. Es decir, el grafo donde cada enlace representa una relación funcional estructural entre variables.
+
+De acuerdo a la definición de SCM proporcionada, no tendríamos por qué suponer que en el grafo asociado no existen ciclos. Sin embargo, como modelamos causas, una intuición física nos diría que una causa \textbf{precede} a su efecto. Si hubiera un ciclo en el grafo asociado, tendríamos una relación temporal incompatible con lo que modelamos. Por ello, siempre hablaremos de de modelos \textit{Markovianos} en terminología de Pearl. En ellos, siempre existe un orden parcial de las variables endógenas tal que cada $V_i$ es consecuencia de sus precedentes en el orden.
 
 \clearpage
 
