@@ -387,6 +387,7 @@ Sean $X, Y, Z$ vértices de un grafo. Todo camino o sendero donde $Z$ sea el nod
     \item Diremos que hay una \textbf{bifurcación (\textit{fork})} si el camino tiene estructura $X \leftarrow Z \rightarrow Y$.
     \item Diremos que hay una \textbf{colisión (\textit{collider})} si el camino tiene estructura $X \rightarrow Z \leftarrow Y$
 \end{enumerate}
+\textbf{Nota:} no puede ser de otra manera, pues hay dos estados para las flechas y el estado de cadena es simétrico.
 \end{defin}
 
 \begin{defin}[Grafo Acíclico Dirigido - DAG]
@@ -418,7 +419,7 @@ Por la propiedad distributiva de la unión y la intersección, tenemos que
 A \cap \left(\bigcup_{i \in I} B_i\right) = \bigcup_{i \in I} (B_i \cap A)
 \end{equation*}
 
-Aplicando ahora el axioma de la $\sigma-$aditividad de $P$, tenemos que 
+Aplicando ahora el axioma de la $\sigma-$aditividad de $P$ (utilizamos que los conjuntos $B_i$ son una partición de $\Omega$), tenemos que 
 
 \begin{equation*}
 P(A) = P\left(\bigcup_{i \in I} (B_i \cap A)\right) = \sum_{i \in I} P(B_i \cap A)
