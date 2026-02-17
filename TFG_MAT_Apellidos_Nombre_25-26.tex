@@ -395,7 +395,9 @@ Sean $X, Y, Z$ vértices de un grafo. Todo camino o sendero donde $Z$ sea el nod
 Un grafo dirigido $G = (V, E)$ se dice \textbf{acíclico} si no contiene ningún ciclo dirigido.
 A este tipo de estructuras se las conoce universalmente por sus siglas en inglés: \textbf{DAG} (\textit{Directed Acyclic Graph}).
 \end{defin}
-\chapter{Modelos Causales Estructurales}
+\chapter{Modelos Causales Estructurales e Intervenciones}
+
+\section{Modelo Estructural Causal}
 
 De manera intuitiva, es útil contar con variables aleatorias para definir relaciones causales, pues podemos expresarlas como transformaciones numéricas. Surge de manera natural tratar causas entre variables aleatorias como dependencias por relaciones funcionales. Así pues, diremos que una variable está causada por otra \textbf{si existe una relación funcional estructurada} entre ambas.
 
@@ -416,7 +418,7 @@ Aquí utilizamos dos conjuntos de variables distintos. No es coincidencia haber 
 Diremos que una estructura causal de un conjunto de variables $V$ es un DAG en el que cada nodo está asociado a una variable de $V$, y cada arista repreesenta una relación funcional entre un nodo y sus padres.
 \end{defin}
 
-\begin{defin}[Modelo causal o modelo estructural causal]
+\begin{defin}[Modelo causal o modelo estructural causal (SCM)]
 Un modelo causal es un triple
 \begin{equation*}
     M = \langle U, V, F\rangle
@@ -429,6 +431,10 @@ donde
 \end{enumerate}
 \end{defin}
 Aquí vemos la distinción entre $\text{PA}_i$ y lo que definimos. En realidad, en el contexto de un modelo estructural, $\text{PA}_i = \text{PA}(V_i) \cap V$.
+
+\section{Grafo asociado a un Modelo Estructural Causal}
+Como ya veníamos anticipando, podemos exponer el isomorfismo entre un grafo y un modelo estructural causal. Sea $M = \langle U, V, F\rangle$ un 
+
 \clearpage
 
 \appendix 
