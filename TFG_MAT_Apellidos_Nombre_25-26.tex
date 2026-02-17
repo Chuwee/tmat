@@ -411,24 +411,24 @@ Sea $X_i$ una variable aleatoria. Una \textbf{ecuación estructural} es aquella 
 X_i := f_i(\text{PA}_i, \text{U}_i) = f_i(P_1, \ldots, P_n, U_1, \ldots, U_n)
 \end{equation*}
 
-Y diremos que $f_i$ es la ecuación que determina el valor de $X_i$ dados $\text{PA}_i$ y $\text{U}_i$. De manera coloquial, diremos que las variables de $\text{PA}_i$ causan el valor de $X_i$ con factores externos $U_i$
+Y diremos que $f_i$ es la ecuación que determina el valor de $X_i$ dados $\text{PA}_i$ y $\text{U}_i$. De manera coloquial, diremos que las variables de $\text{PA}_i$ causan el valor de $X_i$ con factores externos $U_i$.
 \end{defin}
 
-Aquí utilizamos dos conjuntos de variables distintos. No es coincidencia haber escogido $\text{PA}$ para denotar las variables que `causan' el valor de $X_i$, pues se alinean con la Definición~\ref{def:parentesco}. Estas son las variables que tenemos en cuenta en nuestros modelos causales. Por supuesto, no siempre podemos tener en cuenta todas las variables, pues no resulta práctico, así que añadimos y toleramos una influencia del `ruido'. Utilizamos el conjunto de variables $U$ para denotar a este ruido. Es entonces natural definir ahora el `puente' a los \textbf{modelos causales estructurales}. Diremos que existe una \textbf{relación funcional} entre un nodo y sus padres. Notemos que utilizamos $:=$ puesto que $X_i$ es una consecuencia de los valores de los que depende, pero los valores de los que depende no cambian si cambia $X_i$.
-
-Más coloquialmente, supongamos que interpretamos la variable $X$ como `el suelo está mojado'. Si $Y$ es `ha llovido' y $U$ son las variables . Intuitivamente podríamos decir
-
-\begin{equation*}
-X := f(Y, U) =
-\begin{cases}
-Y & \text{si } U = 0 \\
-U & \text{si } U \neq 0
-\end{cases}
-\end{equation*}
-De esta manera, si ha llovido, el suelo estará mojado a no ser que exista algún valor que no consideremos que asigne el valor.
+Aquí utilizamos dos conjuntos de variables distintos. No es coincidencia haber escogido $\text{PA}$ para denotar las variables que `causan' el valor de $X_i$, pues se alinean con la Definición~\ref{def:parentesco}, con un matiz que veremos más adelante. Estas son las variables que tenemos en cuenta en nuestros modelos causales. Utilizamos el conjunto de variables $U$ para denotar a variables generadas por factores externos a lo que incluimos en nuestro modelo. Es entonces natural definir ahora el `puente' a los \textbf{modelos causales estructurales}. Diremos que existe una \textbf{relación funcional} entre un nodo y sus padres. Notemos que utilizamos $:=$ puesto que $X_i$ es una consecuencia de los valores de los que depende, pero los valores de los que depende no cambian si cambia $X_i$.
 
 \begin{defin}[Estructura causal]
 Diremos que una estructura causal de un conjunto de variables $V$ es un DAG en el que cada nodo está asociado a una variable de $V$, y cada arista repreesenta una relación funcional entre un nodo y sus padres.
+\end{defin}
+
+\begin{defin}[Modelo causal o modelo estructural causal]
+Un modelo causal es un triple
+\begin{equation*}
+    M = \langle U, V, F\rangle
+\end{equation*}
+donde
+\begin{enumerate}
+    \item $U$ es un conjunto de variables sin otras que apunten a ellas. Por así decirlo, son `incausadas', o su causa no está dentro del modelo.
+\end{enumerate}
 \end{defin}
 
 \clearpage
