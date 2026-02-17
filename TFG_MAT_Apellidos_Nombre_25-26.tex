@@ -453,6 +453,35 @@ f_Z : Z &= \begin{cases}
 \end{cases}
 \end{align*}
 
+\begin{figure}[ht]
+    \centering
+\begin{tikzpicture}[
+    node distance=2.5cm,
+    decoration={markings, mark=at position 1 with {\arrow{stealth}}},
+    every node/.style={circle, draw, minimum size=1cm, thick, fill=white}
+]
+
+% Nodos
+\node (X) {$X$};
+\node[right=of X] (Y) {$Y$};
+\node[right=of Y] (Z) {$Z$};
+
+\node[below left=of X](UX) {$U_X$};
+\node[right=of UX] (UY) {$U_Y$};
+\node[right=of UY] (UZ) {$U_Z$};
+
+% Aristas
+\draw[thick, postaction={decorate}] (X) -- (Y);
+\draw[thick, postaction={decorate}] (Y) -- (Z);
+\draw[thick, postaction={decorate}] (UY) -- (Y);
+\draw[thick, postaction={decorate}] (UX) -- (X);
+\draw[thick, postaction={decorate}] (UZ) -- (Z);
+
+
+
+\end{tikzpicture}
+\end{figure}
+
 \clearpage
 
 \appendix 
