@@ -402,7 +402,7 @@ Decimos que un grafo dirigido $G = (V, E)$ es una estructura causal en la que ca
 
 \chapter{Modelos Causales Estructurales}
 
-De manera intuitiva, es útil contar con variables aleatorias para definir relaciones causales, pues podemos expresar las relaciones causales como transformaciones numéricas. Surge de manera natural tratar causas entre variables aleatorias como dependencias por relaciones funcionales. Así pues, diremos que una variable está causada por otra \textbf{si existe una relación funcional estructurada} entre ambas.
+De manera intuitiva, es útil contar con variables aleatorias para definir relaciones causales, pues podemos expresarlas como transformaciones numéricas. Surge de manera natural tratar causas entre variables aleatorias como dependencias por relaciones funcionales. Así pues, diremos que una variable está causada por otra \textbf{si existe una relación funcional estructurada} entre ambas.
 
 \begin{defin}[Ecuación estructural]
 Sea $\text{PA}_i = \{P_1, P_2, \ldots, P_n\}$ un conjunto de variables aleatorias. Sea $\text{U}_i = \{U_1, U_2, \ldots, U_n\}$ otro conjunto de variables aleatorias.
@@ -414,7 +414,11 @@ X_i := f_i(\text{PA}_i, \text{U}_i) = f_i(P_1, \ldots, P_n, U_1, \ldots, U_n)
 Y diremos que $f_i$ es la ecuación que determina el valor de $X_i$ dados $\text{PA}_i$ y $\text{U}_i$. De manera coloquial, diremos que las variables de $\text{PA}_i$ causan el valor de $X_i$ con ruido $U_i$
 \end{defin}
 
-Aquí utilizamos dos conjuntos de variables distintos. No es coincidencia haber escogido $\text{PA}$ para denotar las variables que `causan' el valor de $X_i$, pues se alinean con la Definición~\ref{def:parentesco}.
+Aquí utilizamos dos conjuntos de variables distintos. No es coincidencia haber escogido $\text{PA}$ para denotar las variables que `causan' el valor de $X_i$, pues se alinean con la Definición~\ref{def:parentesco}. Estas son las variables que tenemos en cuenta en nuestros modelos causales. Por supuesto, no siempre podemos tener en cuenta todas las variables, pues no resulta práctico, así que añadimos y toleramos una influencia del `ruido'. Utilizamos el conjunto de variables $U$ para denotar a este ruido. Es entonces natural definir ahora el `puente' a los \textbf{modelos causales estructurales}. Diremos que existe una \textbf{relación funcional} entre un nodo y sus padres.
+
+\begin{defin}[Estructura causal]
+Diremos que una estructura causal de un conjunto de variables $V$ es un DAG en el que cada 
+\end{defin}
 
 \clearpage
 
