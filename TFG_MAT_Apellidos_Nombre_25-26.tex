@@ -437,12 +437,22 @@ Como ya veníamos anticipando, podemos exponer el isomorfismo entre un grafo y u
 
 De acuerdo a la definición de SCM proporcionada, no tendríamos por qué suponer que en el grafo asociado no existen ciclos. Sin embargo, como modelamos causas, una intuición física nos diría que una causa \textbf{precede} a su efecto. Si hubiera un ciclo en el grafo asociado, tendríamos una relación temporal incompatible con lo que modelamos. Por ello, siempre hablaremos de de modelos \textit{Markovianos} en terminología de Pearl. En ellos, siempre existe un orden parcial de las variables endógenas tal que cada $V_i$ es consecuencia de sus precedentes en el orden.
 
-Digamos que queremos representar, por medio de un SCM, cómo coexisten el estado de un interruptor ($X$), el estado de su circuito eléctrico asociado ($Y$) y el estado de la bombilla a la que conduce ($Z$). Defimimos también ls variables $U_X, U_Y$ y $U_Z$, que indican si ha ocurrido algo anómalo, o directamente si ocurre algún evento cuya causa no nos interesa.
+Digamos que queremos representar, por medio de un SCM, cómo coexisten el estado de un interruptor ($X$), el estado de su circuito eléctrico asociado ($Y$) y el estado de la bombilla a la que conduce ($Z$). Defimimos también ls variables $U_X, U_Y$ y $U_Z$, que indican si ha ocurrido algo anómalo, o directamente si ocurre algún evento cuya causa no nos interesa modelar.
 
 Dicho de otra forma, estamos considerando el SCM con $V = \{X, Y, Z\}$ y $U = \{U_X, U_Y, U_Z\}$. Para sus relaciones causales, tenemos que:
-\begin{align*}
-f_x : X = U_X \text{ (el estado del interruptor viene de acción humana u otros factores externos que no podemos predecir)}
-\end{align*}
+\[
+\begin{array}{l}
+f_X: X = U_X \\
+f_Y: Y = \begin{cases} 
+\text{Closed} & \text{if } (X = \text{Up} \land U_Y = 0) \lor (X = \text{Down} \land U_Y = 1) \\
+\text{Open} & \text{otherwise}
+\end{cases} \\
+f_Z: Z = \begin{cases} 
+\text{On} & \text{if } (Y = \text{Closed} \land U_Z = 0) \lor (Y = \text{Open} \land U_Z = 1) \\
+\text{Off} & \text{otherwise}
+\end{cases}
+\end{array}
+\]
 
 \clearpage
 
