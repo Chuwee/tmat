@@ -354,6 +354,7 @@ Para todo vértice del grafo $X_i$, definimos
 \item Los \textbf{padres} de $X_i$: $\text{PA}(X_i)=\{X_j \in V \mid X_j \rightarrow X_i \}$
 \item Los \textbf{hijos} de $X_i$: $\text{CH}(X_i)=\{X_j \in V \mid X_i \rightarrow X_j \}$
 \end{itemize}
+\label{def:parentesco}
 \end{defin}
 
 \begin{defin}[Camino]
@@ -407,13 +408,13 @@ De manera intuitiva, es útil contar con variables aleatorias para definir relac
 Sea $\text{PA}_i = \{P_1, P_2, \ldots, P_n\}$ un conjunto de variables aleatorias. Sea $\text{U}_i = \{U_1, U_2, \ldots, U_n\}$ otro conjunto de variables aleatorias.
 Sea $X_i$ una variable aleatoria. Una \textbf{ecuación estructural} es aquella que toma la forma
 \begin{equation*}
-X_i = f_i(\text{PA}_i, \text{U}_i) = f_i(P_1, \ldots, P_n, U_1, \ldots, U_n)
+X_i := f_i(\text{PA}_i, \text{U}_i) = f_i(P_1, \ldots, P_n, U_1, \ldots, U_n)
 \end{equation*}
 
-Y diremos que $f_i$ es la ecuación que determina el valor de $X_i$ dados $\text{PA}_i$ y $\text{U}_i$. De manera coloquial, diremos que las variables de \text{PA}_i
+Y diremos que $f_i$ es la ecuación que determina el valor de $X_i$ dados $\text{PA}_i$ y $\text{U}_i$. De manera coloquial, diremos que las variables de $\text{PA}_i$ causan el valor de $X_i$ con ruido $U_i$
 \end{defin}
 
-Aquí utilizamos dos conjuntos de variables distintos
+Aquí utilizamos dos conjuntos de variables distintos. No es coincidencia haber escogido $\text{PA}$ para denotar las variables que `causan' el valor de $X_i$, pues se alinean con la Definición~\ref{def:parentesco}.
 
 \clearpage
 
