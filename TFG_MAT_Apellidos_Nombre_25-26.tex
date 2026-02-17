@@ -425,10 +425,10 @@ donde
 \begin{enumerate}
     \item $U$ es un conjunto de variables sin otras que apunten a ellas. Por así decirlo, son `incausadas', o su causa no está contemplada dentro del modelo. Son llamadas `predeterminadas' o `exógenas'.
     \item $V$ es un conjunto de variables endógenas $\{V_1, \ldots, V_n\}$, es decir, que su causa se contempla dentro del modelo. Su causa viene determinada por variables en $V \cup U$.
-    \item $F$ es un conjunto de ecuaciones estructurales $\{f_1, f_2, \ldots, f_n\}$ de acuerdo a lo definido en \ref{def:eq-estructural}. Cada $f_i$ determina el valor de $V_i$ de acuerdo a los conjuntos $\text{PA}_i$ y $U_i$ definidos. En este contexto, $\text{PA}_i \subseteq (V - \{V_i\}) $ es el conjunto de variables endógenas de las que depende $V_i$, mientras que $U_i$ es el conjunto de variables exógenas de las que depende $V_i$.
+    \item $F$ es un conjunto de ecuaciones estructurales $\{f_1, f_2, \ldots, f_n\}$ de acuerdo a lo definido en \ref{def:eq-estructural}. Cada $f_i$ determina el valor de $V_i$ de acuerdo a los conjuntos $\text{PA}_i$ y $U_i$ definidos. En este contexto, $\text{PA}_i \subseteq (V - \{V_i\}) $ es el conjunto de variables endógenas de las que depende $V_i$, mientras que $U_i \subseteq U$ es el conjunto de variables exógenas de las que depende $V_i$.
 \end{enumerate}
 \end{defin}
-
+Aquí vemos la distinción entre $\text{PA}_i$ y lo que definimos. En realidad, en el contexto de un modelo estructural, $\text{PA}_i = \text{PA}(V_i) \cap V$.
 \clearpage
 
 \appendix 
