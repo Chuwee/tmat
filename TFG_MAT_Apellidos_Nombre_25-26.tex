@@ -571,7 +571,11 @@ Diremos que un camino $p$ entre dos nodos está d-separado o bloqueado por un co
 \end{enumerate}
 \end{defin}
 
-Si un camino no es d-separado, diremos que es d-conexo. Intuitivamente, un camino bloqueado no permite el paso de dependencia condicional entre los extremos del camino. 
+Si un camino no es d-separado, diremos que es d-conexo. Intuitivamente, un camino d-separado no permite el paso de dependencia condicional entre los extremos del camino. En el ejemplo de la Figura~\ref{fig:d-separation-illustration}, el camino entre $X$ e $Y$ es d-separado si por lo menos una de las siguientes se cumple:
+\begin{enumerate}
+\item $Z_1$ y $Z_3$ no están ambos en $Z$
+\item $Z_2$ está en $Z$
+\end{enumerate}
 
 \begin{figure}[h]
     \centering
@@ -594,13 +598,17 @@ Si un camino no es d-separado, diremos que es d-conexo. Intuitivamente, un camin
 \draw[arr] (Z2) -- (Z3);
 \draw[arr] (Y)  -- (Z3);
 
-% Dashed curved arrow from Z3 to Z1
-\draw[dashed, -{Stealth[scale=1.2]}, thick, bend left=50] (Z3) to (Z1);
 
 \end{tikzpicture}
     \caption{En este ejemplo, $X$ e $Y$ estarán d-separados si $Z_1 \notin Z$ o si $Z_3 \notin Z$, o si $Z_2 \in Z$}
     \label{fig:d-separation-illustration}
 \end{figure}
+
+Diremos que dos conjuntos $X, Y$ son d-separados si todo todo par de nodos en $X \times Y$ es d-separado. Por fin podemos recoger todo lo sembrado a lo largo de este capítulo en el siguiente teorema.
+
+\begin{teor}
+Si los conjunto
+\end{teor}
 
 \clearpage
 
