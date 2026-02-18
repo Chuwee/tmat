@@ -571,7 +571,31 @@ Diremos que un camino $p$ entre dos nodos está d-separado o bloqueado por un co
 \end{enumerate}
 \end{defin}
 
-Intuitivamente, un camino bloqueado no permite el paso de dependencia condicional entre los extremos del camino.
+Intuitivamente, un camino bloqueado no permite el paso de dependencia condicional entre los extremos del camino. 
+
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    every node/.style={circle, fill, inner sep=2pt},
+    arr/.style={-{Stealth[scale=1.2]}, thick}
+]
+
+% Nodes
+\node (X) [label=left:$X$] {};
+\node (Z1) [right of=X, label=below:$Z_1$] {};
+\node (Z2) [right of=Z1, label=below:$Z_2$] {};
+\node (Z3) [right of=Z2, label=below:$Z_3$] {};
+\node (Y)  [right of=Z3, label=right:$Y$] {};
+
+% Straight arrows
+\draw[arr] (X) -- (Z1);
+\draw[arr] (Z2) -- (Z1);
+\draw[arr] (Z2) -- (Z3);
+\draw[arr] (Y)  -- (Z3);
+
+% Dashed curved arrow from Z3 to Z1
+\draw[dashed, -{Stealth[scale=1.2]}, thick, bend left=50] (Z3) to (Z1);
+
+\end{tikzpicture}
 
 \clearpage
 
