@@ -430,7 +430,7 @@ donde
     \item $F$ es un conjunto de ecuaciones estructurales $\{f_1, f_2, \ldots, f_n\}$ de acuerdo a lo definido en \ref{def:eq-estructural}. Cada $f_i$ determina el valor de $V_i$ de acuerdo a los conjuntos $\text{PA}_i$ y $U_i$ definidos. En este contexto, $\text{PA}_i \subseteq (V - \{V_i\}) $ es el conjunto de variables endógenas de las que depende $V_i$, mientras que $U_i \subseteq U$ es el conjunto de variables exógenas de las que depende $V_i$.
 \end{enumerate}
 \end{defin}
-Aquí vemos la distinción entre $\text{PA}_i$ y lo que definimos. En realidad, en el contexto de un modelo estructural, $\text{PA}_i = \text{PA}(V_i) \cap V$.
+Aquí vemos la distinción entre $\text{PA}_i$ y lo que definimos en \ref{def:parentesco}. En realidad, en el contexto de un modelo estructural, $\text{PA}_i = \text{PA}(V_i) \cap V$.
 
 \subsection{Grafo asociado a un Modelo Estructural Causal}
 Como ya veníamos anticipando, podemos transformar el modelo estructural causal en su grafo correspondiente. Sea $M = \langle U, V, F\rangle$ un SCM. Definimos su estructura causal asociada (o DAG asociado) como $G = \langle V \cup U,\bigcup_{i\in \{1, \ldots,n \}} E_i \rangle$, donde $E_i = \{(C, V_i) \mid C \in \text{PA}_i \cup U_i\}$. Es decir, el grafo donde cada enlace representa una relación funcional estructural entre variables.
@@ -486,7 +486,7 @@ Transformando las funciones en relaciones causales de acuerdo al proceso de cons
 
 Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde que transcurren al despertarse', $Y$ como `número de minutos tarde que llegas a la oficina' y $Z$ como `duración del enfado de un jefe poco permisivo'. Las expresiones concretas que tuvieran las relaciones causales que existen entre estas tres variables seguirían sin influir en el grafo. Por tanto, la estructura causal de este modelo causal sería también la de la Figura~\ref{fig:grafo-interruptor}. Por tanto, si podemos decir algo del modelo gráfico, \textbf{podremos decirlo también de cualquier SCM} cuyo modelo gráfico sea ese.
 
-\section{}
+\section{Estructuras topológicas elementales: cadena, bifurcación y colisión}
 
 \clearpage
 
