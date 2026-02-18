@@ -488,7 +488,11 @@ Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las vari
 
 Uno además podría pensar en la cadena en términos de \textbf{cómo de específica} es una información. Supongamos la cadena del SCM descrito en la Figura~\ref{fig:grafo-interruptor}, con las interpretaciones del interruptor, el circuito y la bombilla.
 
-Armados con nuestra intuición, consideramos $P(Z = 1 \mid X = 1)$, es decir, la probabilidad de que la bombilla esté encendida dado que el interruptor está 
+Armados con nuestra intuición, pensamos en la probabilidad de que la bombilla esté encendida dado que el interruptor está en estado `ENCENDIDO'. Esta es, de forma intuitiva, la probabilidad de que no haya anomalías en el circuito.
+
+Supongamos ahora que conocemos el estado del circuito, si está abierto o cerrado. En ese caso, \textbf{nos es indiferente} el estado del interruptor, pues tiene prioridad el efecto del estado del circuito sobre el efecto del estado del interruptor. Esta prioridad viene simbolizada por la longitud del camino de $X$ a $Z$, que es mayor que de $Y$ a $Z$. Si sabemos que el circuito está cerrado, sabremos que la bombilla está encendida independientemente del estado del interruptor.
+
+Más adelante 
 \clearpage
 
 \appendix 
