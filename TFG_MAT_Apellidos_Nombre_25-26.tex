@@ -561,7 +561,15 @@ Una vez sabe esto, el observador sabrá que el resultado de la moneda $Y$ es el 
 Por ello, $X$ e $Y$ son \textbf{independientes} si no se conoce el valor de $Z$, pero se convierten en \textbf{dependientes} cuando conocemos dicho valor. Esto también es cierto para los descendientes de $Z$. Si no conocemos quién ha ganado pero un observador nos dice quién ganó con un 0.75 de fiabilidad, vuelve a romperse la independencia.
 
 \subsection{La d-separación}
-Con la intuición clara acerca de las tres topologías elementales, podemos pasar a definir cuándo un camino está bloqueado entre variables. Utilizamos la definición de camino 
+Con la intuición clara acerca de las tres topologías elementales, podemos pasar a definir cuándo un camino está bloqueado entre variables. Utilizamos la definición de camino~\ref{def:camino}.
+
+\begin{defin}[d-separación o bloqueo]
+Diremos que un camino $p$ entre dos nodos está d-separado o bloqueado por un conjunto de nodos $Z$ si
+\begin{enumerate}
+    \item $p$ contiene una cadena $x \rightarrow z \rightarrow y$ o una bifurcación $x \leftarrow z \rightarrow y$ tal que el nodo $z$ está en $Z$.
+    \item $p$ contiene una 
+\end{enumerate}
+\end{defin}
 
 \clearpage
 
