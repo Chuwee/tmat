@@ -486,8 +486,9 @@ Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conecta
 
 Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las variables. En el caso de la cadena, la intuición nos dice que $Z$ e $Y$ son dependientes, es decir $P(Z = z \mid Y = y) \neq P(Z)$ para algún par $z, y$. Podríamos también aventurarnos a afirmar que $Z$ y $X$ son dependientes. Podemos construir ejemplos `artificiales' donde estas afirmaciones sean falsas (ver Apéndice~\ref{app:independent}), pero no buscamos que se cumplan rigurosamente.
 
-Podríamos además intentar adivinar qué ocurre cuando 
+Uno además podría pensar en la cadena en términos de \textbf{cómo de específica} es una información. Supongamos la cadena del SCM descrito en la Figura~\ref{fig:grafo-interruptor}, con las interpretaciones del interruptor, el circuito y la bombilla.
 
+Armados con nuestra intuición, consideramos $P(Z = 1 \mid X = 1)$, es decir, la probabilidad de que la bombilla esté encendida dado que el interruptor está 
 \clearpage
 
 \appendix 
