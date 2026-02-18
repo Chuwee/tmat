@@ -484,6 +484,7 @@ Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conecta
     \item $X \rightarrow Z \leftarrow Y$, la \textbf{colisión}
 \end{enumerate}
 
+\subsection{Cadena}
 Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las variables. En el caso de la cadena, la intuición nos dice que $Z$ e $Y$ son dependientes, es decir $P(Z = z \mid Y = y) \neq P(Z)$ para algún par $z, y$. Podríamos también aventurarnos a afirmar que $Z$ y $X$ son dependientes. Podemos construir ejemplos `artificiales' donde estas afirmaciones sean falsas (ver Apéndice~\ref{app:independent}), pero no buscamos que se cumplan rigurosamente.
 
 Uno además podría pensar en la cadena en términos de \textbf{cómo de específica} es una información. Supongamos la cadena del SCM descrito en la Figura~\ref{fig:grafo-interruptor}, con las interpretaciones del interruptor, el circuito y la bombilla.
@@ -494,6 +495,37 @@ Supongamos que conocemos el estado del circuito, si está abierto o cerrado. En 
 
 Más adelante demostraremos que esta intuición es en general cierta: en la cadena $X \rightarrow Z \rightarrow Y$, $Y$ y $X$ son independientes dado $Z$.
 
+\subsection{Bifurcación}
+Supongamos la situación $Z$ como `un interruptor ha sido presionado'. La variable $X$ es `el interruptor ha hecho un ruido' y la variable $Y$ es `la bombilla asociada al interruptor está encendida'. De inmediato vemos la estructura causal
+
+\begin{figure}[ht]
+    \centering
+\begin{tikzpicture}[
+    node distance=2.5cm,
+    decoration={markings, mark=at position 1 with {\arrow{stealth}}},
+    every node/.style={circle, draw, minimum size=1cm, thick, fill=white}
+]
+
+% Nodos
+\node (X) {$X$};
+\node[right=of X] (Y) {$Y$};
+\node[right=of Y] (Z) {$Z$};
+
+\node[below left=of X](UX) {$U_X$};
+\node[right=of UX] (UY) {$U_Y$};
+\node[right=of UY] (UZ) {$U_Z$};
+
+% Aristas
+\draw[thick, postaction={decorate}] (X) -- (Y);
+\draw[thick, postaction={decorate}] (Y) -- (Z);
+\draw[thick, postaction={decorate}] (UY) -- (Y);
+\draw[thick, postaction={decorate}] (UX) -- (X);
+\draw[thick, postaction={decorate}] (UZ) -- (Z);
+
+\end{tikzpicture}
+\label{fig:grafo-interruptor}
+\caption{Modelo estructural del SCM descrito. Las variables exógenas junto con las endógenas antecesoras de cada variable determinan el estado del sistema.}
+\end{figure}
 
 
 \clearpage
