@@ -484,7 +484,7 @@ Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conecta
     \item $X \rightarrow Z \leftarrow Y$, la \textbf{colisión}
 \end{enumerate}
 
-Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las variables. En el caso de la cadena, la intuición nos dice que $Z$ e $Y$ son dependientes, es decir $P(Z = z \mid Y = y) \neq P(Z)$ para algún par $z, y$. Podríamos también aventurarnos a afirmar que $Z$ y $X$ son dependientes (véase Apéndice.
+Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las variables. En el caso de la cadena, la intuición nos dice que $Z$ e $Y$ son dependientes, es decir $P(Z = z \mid Y = y) \neq P(Z)$ para algún par $z, y$. Podríamos también aventurarnos a afirmar que $Z$ y $X$ son dependientes. Podemos construir ejemplos `artificiales' donde estas afirmaciones sean falsas (ver Apéndice~\ref{app:independent})
 
 \clearpage
 
@@ -517,20 +517,12 @@ P(A) = \sum_{i \in I} P(B_i \cap A) = \sum_{i \in I} P(A \mid B_i)P(B_i)
 \end{proof}
 
 \chapter{Independencia en la cadena}
+\label{app:independent}
 
 Supongamos tres variables aleatorias $X, Y, Z$ conectadas por un SCM en cadena tal que $X \rightarrow Y \rightarrow Z$. Sabemos entonces que existen $f_Y, f_Z$ tales que $f_Y$ determina el valor de $Y$ dependiente del valor de $X$ y análogamente con $f_Z$, $Z$ e $Y$.
 
 Suponemos que estamos en un espacio de probabilidad $(\Omega, \mathcal{F}, P)$. Si definimos $h = f_Y \circ f_Z$ tenemos la relación causal entre $X$ y $Z$. Si suponemos variables exógenas $U_Y, U_Z$, tenemos
 
-\begin{equation*}
-h(X, U_Y, U_Z) = f_Z(f_Y(X,U_Y), U_Z)
-\end{equation*}
-
-Entonces,
-
-\begin{equation*}
-P(Z=z\mid X=x) = P(h^{-1}(\{z\}) \cap \{x\})
-\end{equation*}
 
 \printbibliography
 
