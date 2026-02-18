@@ -470,8 +470,8 @@ Transformando las funciones en relaciones causales de acuerdo al proceso de cons
 \draw[thick, postaction={decorate}] (UZ) -- (Z);
 
 \end{tikzpicture}
-\label{fig:grafo-interruptor}
 \caption{Modelo estructural del SCM descrito. Las variables exógenas junto con las endógenas antecesoras de cada variable determinan el estado del sistema.}
+\label{fig:grafo-interruptor}
 \end{figure}
 
 Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde que transcurren al despertarse', $Y$ como `número de minutos tarde que llegas a la oficina' y $Z$ como `duración del enfado de un jefe poco permisivo'. Las expresiones concretas que tuvieran las relaciones causales que existen entre estas tres variables seguirían sin influir en el grafo. Por tanto, la estructura causal de este modelo causal sería también la de la Figura~\ref{fig:grafo-interruptor}. Por tanto, si podemos decir algo del modelo gráfico, \textbf{podremos decirlo también de cualquier SCM} cuyo modelo gráfico sea ese.
@@ -496,12 +496,12 @@ Supongamos que conocemos el estado del circuito, si está abierto o cerrado. En 
 Más adelante demostraremos que esta intuición es en general cierta: en la cadena $X \rightarrow Z \rightarrow Y$, $Y$ y $X$ son independientes dado $Z$.
 
 \subsection{Bifurcación}
-Supongamos la situación $Z$ como `un interruptor ha sido presionado'. La variable $X$ es `el interruptor ha hecho un ruido' y la variable $Y$ es `la bombilla asociada al interruptor está encendida'. De inmediato vemos la estructura causal
+Supongamos la situación $Z$ como `un interruptor ha sido presionado'. La variable $X$ es `el interruptor ha hecho un ruido' y la variable $Y$ es `la bombilla asociada al interruptor está encendida'. De inmediato vemos la estructura causal de la Figura~\ref{fig:grafo-interruptor-fork}.
 
 \begin{figure}[ht]
     \centering
 \begin{tikzpicture}[
-    node distance=2.5cm,
+    node distance=1.5cm,
     decoration={markings, mark=at position 1 with {\arrow{stealth}}},
     every node/.style={circle, draw, minimum size=1cm, thick, fill=white}
 ]
