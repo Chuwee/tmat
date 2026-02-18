@@ -571,9 +571,9 @@ Diremos que un camino $p$ entre dos nodos está d-separado o bloqueado por un co
 \end{enumerate}
 \end{defin}
 
-Intuitivamente, un camino bloqueado no permite el paso de dependencia condicional entre los extremos del camino. 
+Si un camino no es d-separado, diremos que es d-conexo. Intuitivamente, un camino bloqueado no permite el paso de dependencia condicional entre los extremos del camino. 
 
-\begin{figure}
+\begin{figure}[h]
     \centering
 \begin{tikzpicture}[
     node distance=1.5cm,
@@ -598,7 +598,7 @@ Intuitivamente, un camino bloqueado no permite el paso de dependencia condiciona
 \draw[dashed, -{Stealth[scale=1.2]}, thick, bend left=50] (Z3) to (Z1);
 
 \end{tikzpicture}
-    \caption{Caption}
+    \caption{En este ejemplo, $X$ e $Y$ estarán d-separados si $Z_1 \notin Z$ o si $Z_3 \notin Z$, o si $Z_2 \in Z$}
     \label{fig:d-separation-illustration}
 \end{figure}
 
