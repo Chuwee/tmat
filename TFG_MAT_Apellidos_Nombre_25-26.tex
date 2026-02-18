@@ -526,7 +526,33 @@ De igual manera, si un observador que no puede ver la bombilla oye que el interr
 
 Supongamos ahora que en cualquiera de las dos situaciones se le dice al observador `el interruptor ha sido presionado'. En la primera, tanto si la bombilla está encendida como apagada, el observador sabrá que el interruptor ha sonado, pues alguien lo ha accionado. Algo similar ocurre en la otra situación, donde independientemente de si se ha oído sonar el interruptor o no, sabremos que la bombilla se ha encendido.
 
-Esto nos da otra propiedad que también demostraremos más adelante: en una bifurcación como la de la Figura
+Esto nos da otra propiedad que también demostraremos más adelante: en una bifurcación como la de la Figura~\ref{fig:grafo-interruptor-fork}, $X$ e $Y$ son condicionalmente independientes dado $Z$.
+
+\subsection{Colisión}
+Álvaro y Luis hacen una apuesta. Se tirarán dos monedas. En caso de que las monedas caigan en la misma cara, Álvaro se lleva las dos monedas. En caso contrario, irán a parar al bolsillo de Luis. Digamos $X$ e $Y$ representan las dos monedas, $Z$ representa el ganador de la apuesta. El SCM tiene como modelo gráfico el de la Figura~\ref{fig:}
+
+\begin{figure}[ht]
+    \centering
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    decoration={markings, mark=at position 1 with {\arrow{stealth}}},
+    every node/.style={circle, draw, minimum size=1cm, thick, fill=white}
+]
+
+% Nodos
+\node (Z) {$Z$};
+\node[below left=of Z] (X) {$X$};
+\node[below right=of Z] (Y) {$Y$};
+
+% Aristas
+\draw[thick, postaction={decorate}] (Z) -- (X);
+\draw[thick, postaction={decorate}] (Z) -- (Y);
+
+\end{tikzpicture}
+\caption{Modelo estructural del SCM descrito. El que alguien le dé al interruptor causa que se encienda la bombilla y que suene el interruptor.}
+\label{fig:grafo-interruptor-fork}
+\end{figure}
+
 
 \clearpage
 
