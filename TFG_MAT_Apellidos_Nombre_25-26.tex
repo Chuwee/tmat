@@ -567,9 +567,11 @@ Con la intuición clara acerca de las tres topologías elementales, podemos pasa
 Diremos que un camino $p$ entre dos nodos está d-separado o bloqueado por un conjunto de nodos $Z$ si
 \begin{enumerate}
     \item $p$ contiene una cadena $x \rightarrow z \rightarrow y$ o una bifurcación $x \leftarrow z \rightarrow y$ tal que el nodo $z$ está en $Z$.
-    \item $p$ contiene una 
+    \item $p$ contiene una colisión $x \rightarrow z \leftarrow y$ tal que el nodo $z$ o cualquier descendiente de $z$ \textbf{no} está en $Z$.
 \end{enumerate}
 \end{defin}
+
+Intuitivamente, un camino bloqueado no permite el paso de dependencia condicional entre los extremos del camino.
 
 \clearpage
 
