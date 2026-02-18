@@ -448,7 +448,7 @@ Transformando las funciones en relaciones causales de acuerdo al proceso de cons
 \begin{figure}[ht]
     \centering
 \begin{tikzpicture}[
-    node distance=2.5cm,
+    node distance=1.25cm,
     decoration={markings, mark=at position 1 with {\arrow{stealth}}},
     every node/.style={circle, draw, minimum size=1cm, thick, fill=white}
 ]
@@ -519,6 +519,10 @@ Supongamos la situación $Z$ como `un interruptor ha sido presionado'. La variab
 \label{fig:grafo-interruptor-fork}
 \caption{Modelo estructural del SCM descrito. El que alguien le dé al interruptor causa que se encienda la bombilla y que suene el interruptor.}
 \end{figure}
+
+Si un observador que no puede oír si el interruptor ha sido accionado observa que la bombilla se enciende, asumirá que el interruptor ha sonado (a menos que exista otro medio por el que la bombilla pueda encenderse, en este caso una variable exógena $U_Y$).
+
+De igual manera, si un observador que no puede ver la bombilla oye que el interruptor emite un sonido, asumirá que la bombilla se ha encendido (a menos que exista una anomalía en el circuito conductor entre el interruptor y la bombilla, otra variable exógena $U_X$).
 
 \clearpage
 
