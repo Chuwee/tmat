@@ -490,7 +490,10 @@ Sí podemos afirmar cosas sobre todas las variables. Cambiamos, por claridad la 
 
 Para lo que sigue, usaremos el siguiente lema:
 \begin{lema}
-Supongamos un SCM con DAG asociado $U_X \rightarrow X \rightarrow Y$, entonces, $X$ y $Z$ son condicionalmente independientes dado $Y$.
+Supongamos un SCM con DAG asociado $X \rightarrow Y \leftarrow U_Y$, usando notación $f_Y: D_X \times D_{U_Y} \rightarrow D_Y$ entonces
+\begin{equation*}
+    P(Y = y \mid X = x) = P(f_Y^{-1}(y) \cap \{(x, u_y) \mid u_y \in D_{U_Y}\})
+\end{equation*}
 \end{lema}
 \begin{proof}
 Buscamos demostrar que 
