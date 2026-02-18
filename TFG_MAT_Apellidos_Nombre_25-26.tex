@@ -529,7 +529,7 @@ Supongamos ahora que en cualquiera de las dos situaciones se le dice al observad
 Esto nos da otra propiedad que también demostraremos más adelante: en una bifurcación como la de la Figura~\ref{fig:grafo-interruptor-fork}, $X$ e $Y$ son condicionalmente independientes dado $Z$.
 
 \subsection{Colisión}
-Álvaro y Luis hacen una apuesta. Se tirarán dos monedas. En caso de que las monedas caigan en la misma cara, Álvaro se lleva las dos monedas. En caso contrario, irán a parar al bolsillo de Luis. Digamos $X$ e $Y$ representan las dos monedas, $Z$ representa el ganador de la apuesta. El SCM tiene como modelo gráfico el de la Figura~\ref{fig:}
+Álvaro y Luis hacen una apuesta. Se tirarán dos monedas. En caso de que las monedas caigan en la misma cara, Álvaro se lleva las dos monedas. En caso contrario, irán a parar al bolsillo de Luis. Digamos $X$ e $Y$ representan las dos monedas, $Z$ representa el ganador de la apuesta. El SCM tiene como modelo gráfico el de la Figura~\ref{fig:grafo-interruptor-colision}
 
 \begin{figure}[ht]
     \centering
@@ -553,6 +553,11 @@ Esto nos da otra propiedad que también demostraremos más adelante: en una bifu
 \label{fig:grafo-interruptor-colision}
 \end{figure}
 
+El resultado de las dos monedas por separado es independiente. Es decir, $X$ e $Y$ son independientes. Si un observador solo conoce el resultado de la moneda $X$, no podrá conocer el resultado de $Y$. Supongamos que le decimos al observador `Álvaro ganó la apuesta'. En ese caso, le damos a conocer la variable $Z$.
+
+Una vez sabe esto, el observador sabrá que el resultado de la moneda $Y$ es el mismo que el de la moneda $X$. El argumento es simétrico para $Y$ y $X$.
+
+Por ello, $X$ e $Y$ son \textbf{independientes} si no se conoce el valor de $Z$, pero se convierten en \textbf{dependientes} cuando conocemos dicho valor.
 
 \clearpage
 
