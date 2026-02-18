@@ -507,26 +507,18 @@ Supongamos la situación $Z$ como `un interruptor ha sido presionado'. La variab
 ]
 
 % Nodos
-\node (X) {$X$};
-\node[right=of X] (Y) {$Y$};
-\node[right=of Y] (Z) {$Z$};
-
-\node[below left=of X](UX) {$U_X$};
-\node[right=of UX] (UY) {$U_Y$};
-\node[right=of UY] (UZ) {$U_Z$};
+\node (Z) {$Z$};
+\node[below left=of Z] (X) {$X$};
+\node[below right=of Z] (Y) {$Y$};
 
 % Aristas
-\draw[thick, postaction={decorate}] (X) -- (Y);
-\draw[thick, postaction={decorate}] (Y) -- (Z);
-\draw[thick, postaction={decorate}] (UY) -- (Y);
-\draw[thick, postaction={decorate}] (UX) -- (X);
-\draw[thick, postaction={decorate}] (UZ) -- (Z);
+\draw[thick, postaction={decorate}] (Z) -- (X);
+\draw[thick, postaction={decorate}] (Z) -- (Y);
 
 \end{tikzpicture}
-\label{fig:grafo-interruptor}
-\caption{Modelo estructural del SCM descrito. Las variables exógenas junto con las endógenas antecesoras de cada variable determinan el estado del sistema.}
+\label{fig:grafo-interruptor-fork}
+\caption{Modelo estructural del SCM descrito. El que alguien le dé al interruptor causa que se encienda la bombilla y que suene el interruptor.}
 \end{figure}
-
 
 \clearpage
 
