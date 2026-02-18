@@ -381,16 +381,6 @@ Un \textbf{ciclo dirigido} es una secuencia de vértices $(V_0, V_1, \ldots, V_k
 \end{enumerate}
 \end{defin}
 
-\begin{defin}[Estructuras topológicamente elementales]
-Sean $X, Y, Z$ vértices de un grafo. Todo camino o sendero donde $Z$ sea el nodo intermedio entre $X$ e $Y$ se puede clasificar en una de las tres estructuras topológicas elementales:
-\begin{enumerate}
-    \item Diremos que hay una \textbf{cadena} si el camino tiene estructura $X \rightarrow Z \rightarrow Y$.
-    \item Diremos que hay una \textbf{bifurcación (\textit{fork})} si el camino tiene estructura $X \leftarrow Z \rightarrow Y$.
-    \item Diremos que hay una \textbf{colisión (\textit{collider})} si el camino tiene estructura $X \rightarrow Z \leftarrow Y$
-\end{enumerate}
-\textbf{Nota:} no puede ser de otra manera, pues hay dos estados para las flechas y el estado de cadena es simétrico.
-\end{defin}
-
 \begin{defin}[Grafo Acíclico Dirigido - DAG]
 Un grafo dirigido $G = (V, E)$ se dice \textbf{acíclico} si no contiene ningún ciclo dirigido.
 A este tipo de estructuras se las conoce universalmente por sus siglas en inglés: \textbf{DAG} (\textit{Directed Acyclic Graph}).
@@ -487,6 +477,7 @@ Transformando las funciones en relaciones causales de acuerdo al proceso de cons
 Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde que transcurren al despertarse', $Y$ como `número de minutos tarde que llegas a la oficina' y $Z$ como `duración del enfado de un jefe poco permisivo'. Las expresiones concretas que tuvieran las relaciones causales que existen entre estas tres variables seguirían sin influir en el grafo. Por tanto, la estructura causal de este modelo causal sería también la de la Figura~\ref{fig:grafo-interruptor}. Por tanto, si podemos decir algo del modelo gráfico, \textbf{podremos decirlo también de cualquier SCM} cuyo modelo gráfico sea ese.
 
 \section{Estructuras topológicas elementales: cadena, bifurcación y colisión}
+Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conectado con $Z$, cualquiera que sea la dirección de dicha conexión. De forma similar, 
 
 \clearpage
 
