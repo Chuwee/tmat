@@ -432,7 +432,7 @@ donde
 \end{defin}
 Aquí vemos la distinción entre $\text{PA}_i$ y lo que definimos. En realidad, en el contexto de un modelo estructural, $\text{PA}_i = \text{PA}(V_i) \cap V$.
 
-\section{Grafo asociado a un Modelo Estructural Causal}
+\subsection{Grafo asociado a un Modelo Estructural Causal}
 Como ya veníamos anticipando, podemos transformar el modelo estructural causal en su grafo correspondiente. Sea $M = \langle U, V, F\rangle$ un SCM. Definimos su estructura causal asociada (o DAG asociado) como $G = \langle V \cup U,\bigcup_{i\in \{1, \ldots,n \}} E_i \rangle$, donde $E_i = \{(C, V_i) \mid C \in \text{PA}_i \cup U_i\}$. Es decir, el grafo donde cada enlace representa una relación funcional estructural entre variables.
 
 De acuerdo a la definición de SCM proporcionada, no tendríamos por qué suponer que en el grafo asociado no existen ciclos. Sin embargo, como modelamos causas, una intuición física nos diría que una causa \textbf{precede} a su efecto. Si hubiera un ciclo en el grafo asociado, tendríamos una relación temporal incompatible con lo que modelamos. Por ello, siempre hablaremos de de modelos \textit{Markovianos} en terminología de Pearl. En ellos, siempre existe un orden parcial de las variables endógenas tal que cada $V_i$ es consecuencia de sus precedentes en el orden.
@@ -485,6 +485,8 @@ Transformando las funciones en relaciones causales de acuerdo al proceso de cons
 \end{figure}
 
 Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde que transcurren al despertarse', $Y$ como `número de minutos tarde que llegas a la oficina' y $Z$ como `duración del enfado de un jefe poco permisivo'. Las expresiones concretas que tuvieran las relaciones causales que existen entre estas tres variables seguirían sin influir en el grafo. Por tanto, la estructura causal de este modelo causal sería también la de la Figura~\ref{fig:grafo-interruptor}. Por tanto, si podemos decir algo del modelo gráfico, \textbf{podremos decirlo también de cualquier SCM} cuyo modelo gráfico sea ese.
+
+\section{}
 
 \clearpage
 
