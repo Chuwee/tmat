@@ -312,6 +312,22 @@ La tupla $(\mathcal{W, B})$ se llama espacio medible. A veces se dice $\mathcal{
 \begin{defin}
 Sean $(\mathcal{W, B_W})$ y $(\mathcal{Z, B_Z})$ espacios medibles. Sea $f: \mathcal{W} \rightarrow \mathcal{B}$ una función. Diremos que $f$ es $\mathcal{B_W-B_Z}$ medible o simplemente medible si para todo $B \in \mathcal{B_Z}$ la preimagen $f^{-1}(B) \in \mathcal{B_W}$.
 \end{defin}
+
+\begin{defin}
+Sea $(\mathcal{W, B})$ un espacio medible. Una medida $\mu$ en $(\mathcal{W, B})$ es una función
+\begin{equation*}
+\mu: \mathcal{B} \rightarrow \mathbb{R} \cup \{\infty\}
+\end{equation*}
+tal que
+\begin{enumerate*}
+\item $\mu(A) \in [0, \infty]$
+\item $\mu(\emptyset) = 0$
+\item $\sigma-$aditividad: para toda secuencia de conjuntos $A_n \in \mathcal{B}$ disjuntos dos a dos:
+\begin{equation*}
+\mu\left(\bigcup_{n \in \mathbb{N}}A_n\right) = \sum_{n\in\mathbb{N}\} \mu(A_n)
+\end{equation*}
+\end{enumerate*}
+\end{defin}
 \section{Conceptos de probabilidad}
 A lo largo del documento, asumimos siempre que estamos en un espacio de probabilidad $(\Omega, \mathcal{F}, P)$, con $\Omega$ el espacio muestral, $\mathcal{F}$ su $\sigma-$álgebra y $P:\mathcal{F} \rightarrow \mathbb{R}$ la función de medida de probabilidad que satisface los tres axiomas de Kolmogorov.
 
