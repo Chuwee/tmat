@@ -477,7 +477,14 @@ Transformando las funciones en relaciones causales de acuerdo al proceso de cons
 Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde que transcurren al despertarse', $Y$ como `número de minutos tarde que llegas a la oficina' y $Z$ como `duración del enfado de un jefe poco permisivo'. Las expresiones concretas que tuvieran las relaciones causales que existen entre estas tres variables seguirían sin influir en el grafo. Por tanto, la estructura causal de este modelo causal sería también la de la Figura~\ref{fig:grafo-interruptor}. Por tanto, si podemos decir algo del modelo gráfico, \textbf{podremos decirlo también de cualquier SCM} cuyo modelo gráfico sea ese.
 
 \section{Estructuras topológicas elementales: cadena, bifurcación y colisión}
-Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conectado con $Z$, cualquiera que sea la dirección de dicha conexión. De forma similar, 
+Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conectado con $Z$, cualquiera que sea la dirección de dicha conexión. De forma similar, $Z$ está conectado con $Y$. Entonces, existen cuatro estados posibles.
+\begin{enumerate}
+    \item $X \rightarrow Z \rightarrow Y$ (o $X \leftarrow Z \leftarrow Y$, pero nos referimos a la anterior pues son simétricas), la \textbf{cadena}
+    \item $X \leftarrow Z \rightarrow Y$, la \textbf{bifurcación}
+    \item $X \rightarrow Z \leftarrow Y$, la \textbf{colisión}
+\end{enumerate}
+
+Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las variables. En el caso de la cadena, podríamos decir que 
 
 \clearpage
 
