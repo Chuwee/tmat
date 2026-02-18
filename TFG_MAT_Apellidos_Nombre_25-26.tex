@@ -13,7 +13,7 @@
 \addbibresource{references.bib}
 
 \usepackage{tikz}
-\usetikzlibrary{decorations.markings, positioning}
+\usetikzlibrary{decorations.markings, positioning, arrows.meta, bending}
 
 
 
@@ -573,6 +573,8 @@ Diremos que un camino $p$ entre dos nodos está d-separado o bloqueado por un co
 
 Intuitivamente, un camino bloqueado no permite el paso de dependencia condicional entre los extremos del camino. 
 
+\begin{figure}
+    \centering
 \begin{tikzpicture}[
     node distance=1.5cm,
     every node/.style={circle, fill, inner sep=2pt},
@@ -596,6 +598,9 @@ Intuitivamente, un camino bloqueado no permite el paso de dependencia condiciona
 \draw[dashed, -{Stealth[scale=1.2]}, thick, bend left=50] (Z3) to (Z1);
 
 \end{tikzpicture}
+    \caption{Caption}
+    \label{fig:d-separation-illustration}
+\end{figure}
 
 \clearpage
 
