@@ -484,7 +484,7 @@ Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conecta
     \item $X \rightarrow Z \leftarrow Y$, la \textbf{colisión}
 \end{enumerate}
 
-Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las variables. En el caso de la cadena, podríamos decir que (con falta de rigor) $Z$ depende de $Y$ condicionalmente  
+Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las variables. En el caso de la cadena, la intuición nos dice que $Z$ e $Y$ son dependientes, es decir $P(Z = z \mid Y = y) \neq P(Z)$ para algún par $z, y$. Podríamos también aventurarnos a afirmar que $Z$ y $X$ son dependientes (véase Apéndice.
 
 \clearpage
 
@@ -516,7 +516,7 @@ P(A) = \sum_{i \in I} P(B_i \cap A) = \sum_{i \in I} P(A \mid B_i)P(B_i)
 
 \end{proof}
 
-
+\chapter{Independencia en la cadena}
 
 \printbibliography
 
