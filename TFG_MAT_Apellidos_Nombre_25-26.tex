@@ -363,6 +363,7 @@ Dado un grafo dirigido $G=(V,E)$, un \textbf{camino} (o sendero) entre dos nodos
 \item $V_0=X$ y $V_k=Y$.
 \item Para cada $i \in \{0,\ldots,k-1\}$, los vértices son adyacentes en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$ o bien $(V_{i+1},V_i)\in E$.
 \end{enumerate}
+\label{def:camino}
 \end{defin}
 
 \begin{defin}[Camino dirigido]
@@ -557,7 +558,10 @@ El resultado de las dos monedas por separado es independiente. Es decir, $X$ e $
 
 Una vez sabe esto, el observador sabrá que el resultado de la moneda $Y$ es el mismo que el de la moneda $X$. El argumento es simétrico para $Y$ y $X$.
 
-Por ello, $X$ e $Y$ son \textbf{independientes} si no se conoce el valor de $Z$, pero se convierten en \textbf{dependientes} cuando conocemos dicho valor. Esto también es cierto para los descendientes de $Z$. Si no conocemos quién ha ganado pero un observador nos dice quién ganó con un 0.75 de probabilidad, lo tenemos sencillo.
+Por ello, $X$ e $Y$ son \textbf{independientes} si no se conoce el valor de $Z$, pero se convierten en \textbf{dependientes} cuando conocemos dicho valor. Esto también es cierto para los descendientes de $Z$. Si no conocemos quién ha ganado pero un observador nos dice quién ganó con un 0.75 de fiabilidad, vuelve a romperse la independencia.
+
+\subsection{La d-separación}
+Con la intuición clara acerca de las tres topologías elementales, podemos pasar a definir cuándo un camino está bloqueado entre variables. Utilizamos la definición de camino 
 
 \clearpage
 
