@@ -541,16 +541,16 @@ Esto nos da otra propiedad que también demostraremos más adelante: en una bifu
 
 % Nodos
 \node (Z) {$Z$};
-\node[below left=of Z] (X) {$X$};
-\node[below right=of Z] (Y) {$Y$};
+\node[above left=of Z] (X) {$X$};
+\node[above right=of Z] (Y) {$Y$};
 
 % Aristas
-\draw[thick, postaction={decorate}] (Z) -- (X);
-\draw[thick, postaction={decorate}] (Z) -- (Y);
+\draw[thick, postaction={decorate}] (X) -- (Z);
+\draw[thick, postaction={decorate}] (Y) -- (Z);
 
 \end{tikzpicture}
-\caption{Modelo estructural del SCM descrito. El que alguien le dé al interruptor causa que se encienda la bombilla y que suene el interruptor.}
-\label{fig:grafo-interruptor-fork}
+\caption{Modelo estructural del SCM descrito. El resultado de las dos monedas decide el ganador de la apuesta.}
+\label{fig:grafo-interruptor-colision}
 \end{figure}
 
 
