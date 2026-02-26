@@ -343,7 +343,7 @@ P(A \mid B) = \frac{P(A \cap B)}{P(B)}
 \end{defin}
 Normalmente abreviaremos $P(A \cap B)$ o $P(X_1 \cap X_2 \cap \ldots\cap X_n)$ como $P(A, B)$ o $P(X_1, X_2, \ldots, X_n)$. En consecuencia de esta regla, tenemos $P(X_1, X_2, \ldots, X_n) = P(X_n\mid X_1, \ldots, X_{n-1})\ldots P(X_2\mid X_1)P(X_1)$ 
 \begin{defin}[Independencia condicional]
-Decimos que las variables $X$ e $Y$ son condicionalmente independientes dado $Z$ si
+Decimos que las variables $X$ e $Y$ son condicionalmente independientes dado $Z$ (denotado $(X \perp Y) \mid Z$ si
 \begin{equation*}
 P(X, Y \mid Z) = P(X\mid Z)P(Y\mid Z)
 \end{equation*}
@@ -521,7 +521,7 @@ Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde qu
 Para poder establecer el puente de paso final entre un grafo y sus distribuciones de probabilidad compatibles nos apoyaremos en la condición causal de Markov, así como en el concepto de padres Markovianos (\ref{def:padres-markovianos}).
 
 \begin{defin}[Condición de Markov Causal]
-Sea $M = \langle U, V, F\rangle$ un SCM con DAG asociado $G$. Diremos que $M$ satisface la condición de Markov causal si el conjunto de padres Markovianos de $V_i$ coincide con sus Padres  
+Sea $M = \langle U, V, F\rangle$ un SCM con DAG asociado $G$. En el contexto de la Definición~\ref{def:padres-markovianos}, decimos que las variables predecesoras de $V_j$ son aquellas variables del grafo que forman parte de los \textbf{no descendientes} de $V_j$ ($\text{ND}_j$
 \end{defin}
 
 \section{Estructuras topológicas elementales: cadena, bifurcación y colisión: d-separación}
