@@ -367,6 +367,12 @@ P(A) = \sum_{i \in I} P(A\mid B_i) P(B_i)
 Ver Apéndice~\ref{app:demo}
 \end{proof}
 
+\begin{defin}[Padres Markovianos]
+Sea $V = \{X_1, \ldots, X_n\}$ un conjunto de variables y sea $P(v)$ su distribución de probabilidad conjunta. 
+
+Un conjunto $\text{PA}_j \subseteq V$ se dice que son los padres Markovianos de $X_j$ si $\text{PA}_j$ es el mínimo conjunto de variables predecesoras (es decir $X_i \in \text{PA}_j \rightarrow i < j$) tal que 
+\end{defin}
+
 \section{Teoría de grafos}
 \begin{defin}[Grafo dirigido]
 Decimos que el par $G = \langle V, E\rangle$ donde 
@@ -507,6 +513,9 @@ Transformando las funciones en relaciones causales de acuerdo al proceso de cons
 \end{figure}
 
 Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde que transcurren al despertarse', $Y$ como `número de minutos tarde que llegas a la oficina' y $Z$ como `duración del enfado de un jefe poco permisivo'. Las expresiones concretas que tuvieran las relaciones causales que existen entre estas tres variables seguirían sin influir en el grafo. Por tanto, la estructura causal de este modelo causal sería también la de la Figura~\ref{fig:grafo-interruptor}. Por tanto, si podemos decir algo del modelo gráfico, \textbf{podremos decirlo también de cualquier SCM} cuyo modelo gráfico sea ese.
+
+\section{Distribución de probabilidad compatible con un grafo}
+
 
 \section{Estructuras topológicas elementales: cadena, bifurcación y colisión: d-separación}
 Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conectado con $Z$, cualquiera que sea la dirección de dicha conexión. De forma similar, $Z$ está conectado con $Y$. Entonces, existen cuatro estados posibles.
