@@ -296,12 +296,7 @@ El objetivo de este trabajo es establecer una base de entendimiento de los méto
 
 En particular, buscamos analizar las limitaciones de la estadística clásica para extraer relaciones causales, formalizar la teoría de los \textit{Directed Acyclic Graphs} (\textbf{DAGs}) en el contexto causal, definir con rigor los conceptos de \textit{d-separation} y \textbf{bloqueos}, establecer distinciones entre la probabilidad condicionada tradicional $P(Y \mid X)$ y $P(Y \mid do(X))$, presentar las reglas del $do$-Calculus, explorar los conceptos de \textit{Back-door criterion} y \textit{Front-door criterion}.
 
-
-
-
-\begin{proof}
-Ver Apéndice~\ref{app:demo}
-\end{proof}
+A lo largo del trabajo utilizaremos los conceptos del Apéndice~\ref{bases-conceptuales}
 
 \chapter{Conceptos de teoría de grafos}
 \begin{defin}[Orden topológico]
@@ -316,7 +311,10 @@ Para demostrar este teorema necesitamos el siguiente lema
 Todo grafo acíclico dirigido debe tener al menos un nodo sin flechas entrantes.
 \end{lema}
 \begin{proof}
-Supongamos que no. Entonces, escojamos al azar un nodo del grafo. Como tiene flechas entrantes, podemos ir hacia atrás todo lo que queramos. Como el grafo tiene nodos finitos, por el principio del palomar volveremos a llegar a alguno de los nodos visitados.
+Supongamos un grafo acíclico dirigido con $n$ nodos en el que todo nodo tiene por lo menos una flecha entrante. Escogemos un nodo cualquiera de dicho grafo, y lo llamamos $V_n$. Al tener por lo menos una flecha entrante, podemos escoger uno de los nodos que apunta a él, y lo llamamos $V_{n-1}$. Continuamos sucesivamente. Si en algún momento tocamos un nodo que ya hemos recorrido, entonces hemos terminado. Si no, entonces después de $n$ iteraciones llegaremos a una lista de nodos recorridos que como máximo puede tener longitud $n$.
+
+Como podemos repetir este proceso cuanto queramos (pues todo nodo tiene por lo menos una flecha entrante)
+
 \end{proof}
 
 Ahora demostramos el original
@@ -592,29 +590,7 @@ Los conjuntos $X$ e $Y$ son d-separados por un conjunto $Z$ en un DAG $G$, si y 
 
 \appendix 
 \include{appendix_a}
-\begin{proof}
-Como $A \subseteq \Omega$,
-\begin{equation*}
-    A = A \cap \Omega = A \cap \left(\bigcup_{i \in I} B_i\right)
-\end{equation*}
-Por la propiedad distributiva de la unión y la intersección, tenemos que 
-\begin{equation*}
-A \cap \left(\bigcup_{i \in I} B_i\right) = \bigcup_{i \in I} (B_i \cap A)
-\end{equation*}
 
-Aplicando ahora el axioma de la $\sigma-$aditividad de $P$ (utilizamos que los conjuntos $B_i$ son una partición de $\Omega$), tenemos que 
-
-\begin{equation*}
-P(A) = P\left(\bigcup_{i \in I} (B_i \cap A)\right) = \sum_{i \in I} P(B_i \cap A)
-\end{equation*}
-
-Aplicando ahora la definición de probabilidad condicionada, llegamos al resultado deseado:
-
-\begin{equation*}
-P(A) = \sum_{i \in I} P(B_i \cap A) = \sum_{i \in I} P(A \mid B_i)P(B_i)
-\end{equation*}
-
-\end{proof}
 
 \chapter{Independencia en la cadena}
 \label{app:independent}
