@@ -308,7 +308,7 @@ Todo grafo acíclico dirigido tiene un orden topológico.
 \end{teor}
 Para demostrar este teorema necesitamos el siguiente lema
 \begin{lema}
-Todo grafo acíclico dirigido debe tener al menos un nodo sin flechas entrantes.
+Todo grafo acíclico dirigido debe tener al menos un nodo sin aristas entrantes.
 \end{lema}
 \begin{proof}
 Supongamos por reducción al absurdo un grafo acíclico dirigido con $n$ nodos en el que todo nodo tiene por lo menos una flecha entrante. Escogemos un nodo cualquiera $X_0 \in V$. Como tiene una arista entrante, 
@@ -318,6 +318,8 @@ existe $X_1$ tal que $X_1 \to X_0$. Como $X_1$ también tiene una arista entrant
 Ahora demostramos el original
 \begin{proof}
 Vamos por inducción sobre el número de nodos en el grafo $n$. Si $n = 0$ el conjunto vacío es la enumeración trivial.
+
+Supongamos que todos los grafos con menos de $n$ nodos tienen un orden topológico. Sea $G$ un grafo acíclico dirigido con $n$ nodos. Consideramos uno de sus nodos sin aristas 
 \end{proof}
 
 
