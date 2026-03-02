@@ -311,16 +311,13 @@ Para demostrar este teorema necesitamos el siguiente lema
 Todo grafo acíclico dirigido debe tener al menos un nodo sin flechas entrantes.
 \end{lema}
 \begin{proof}
-Supongamos un grafo acíclico dirigido con $n$ nodos en el que todo nodo tiene por lo menos una flecha entrante. Escogemos un nodo cualquiera de dicho grafo. Al tener por lo menos una flecha entrante, podemos escoger uno de los nodos que apunta a él. Continuamos sucesivamente. Si después de $k < n$ iteraciones escogemos un nodo que ya hemos recorrido, entonces hemos terminado.
-
-Si no, entonces después de $n$ iteraciones llegaremos a una lista de nodos recorridos que como máximo puede tener longitud $n$. Repitiendo el proceso una vez más (podemos, pues todo nodo tiene una flecha entrante), habremos recorrido $n + 1$ nodos de una lista de $n$ nodos y, por el principio del palomar, habremos recorrido algún nodo dos veces.
-
-En cualquiera de los dos casos, si seguimos el camino en orden inverso, tendremos un ciclo.
+Supongamos por reducción al absurdo un grafo acíclico dirigido con $n$ nodos en el que todo nodo tiene por lo menos una flecha entrante. Escogemos un nodo cualquiera $X_0 \in V$. Como tiene una arista entrante, 
+existe $X_1$ tal que $X_1 \to X_0$. Como $X_1$ también tiene una arista entrante, existe $X_2$ tal que $X_2 \to X_1$. Continuando este proceso, construimos una sucesión $X_0, X_1, X_2, \ldots$ Como $V$ es finito, por el principio del palomar existe $i < j$ tal que $X_i = X_j$. Entonces la secuencia $X_j \to X_{j-1} \to \cdots \to X_i = X_j$ es un ciclo dirigido en $G$, contradiciendo que $G$ es un DAG.
 \end{proof}
 
 Ahora demostramos el original
 \begin{proof}
-Escogemos como primeros nodos en cualquier orden aquellos que no tienen flechas entrantes. Posteriormente, escogemos los hijos del primer nodo, en cualquier orden que se quiera, seguidos de los del segundo nodo... (búsqueda en anchura). Así construimos un orden topológico.
+Construiremos la sucesión en la que los primeros nodos son aquellos que no tienen flechas entrantes, en cualquier orden. A continuación añadiremos los descendientes del primer nodo cuyos descendientes no estén ya en la sucesión. Por definición, cualquier descendiente de un nodo está por delante de ese nodo en dicha sucesión, por lo que hemos construido el orden topológico.
 \end{proof}
 
 
