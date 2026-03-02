@@ -319,7 +319,9 @@ Ahora demostramos el original
 \begin{proof}
 Vamos por inducción sobre el número de nodos en el grafo $n$. Si $n = 0$ el conjunto vacío es la enumeración trivial.
 
-Supongamos que todos los grafos con menos de $n$ nodos tienen un orden topológico. Sea $G$ un grafo acíclico dirigido con $n$ nodos. Consideramos uno de sus nodos sin aristas 
+Supongamos que todos los grafos con menos de $n$ nodos tienen un orden topológico. Sea $G = (V, E)$ un grafo acíclico dirigido con $n$ nodos. Consideramos uno de sus nodos sin aristas, llamémoslo $X_1$. Consideramos el grafo $G' = (V - \{X_1\}, E')$ donde $E'$ es el conjunto de aristas sin las entrantes o salientes de $X_1$. El grafo $G$ es acíclico y dirigido pues quitar nodos no crea ciclos, y tiene $n-1$ nodos.
+
+Consideramos un orden topológico de $G'$, $X_2, X_3, \ldots, X_n$. Entonces, $X_1, X_2, \ldots, X_n$ es un orden topológico de $G$. En efecto, para todo $i \neq 1$ $X_i \to X_j$ implica $i < j$ por la hipótesis inductiva y porque $j \neq 1$ dado que entonces habría una arista entrante en $X_1$. Si $i = 1$ tendríamos $X_1 \rightarrow X_j$ pero como $j \geq 2$ tenemos $i = 1 < 2 \leq j$. 
 \end{proof}
 
 
