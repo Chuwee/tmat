@@ -311,10 +311,11 @@ Para demostrar este teorema necesitamos el siguiente lema
 Todo grafo acíclico dirigido debe tener al menos un nodo sin flechas entrantes.
 \end{lema}
 \begin{proof}
-Supongamos un grafo acíclico dirigido con $n$ nodos en el que todo nodo tiene por lo menos una flecha entrante. Escogemos un nodo cualquiera de dicho grafo, y lo llamamos $V_n$. Al tener por lo menos una flecha entrante, podemos escoger uno de los nodos que apunta a él, y lo llamamos $V_{n-1}$. Continuamos sucesivamente. Si en algún momento tocamos un nodo que ya hemos recorrido, entonces hemos terminado. Si no, entonces después de $n$ iteraciones llegaremos a una lista de nodos recorridos que como máximo puede tener longitud $n$.
+Supongamos un grafo acíclico dirigido con $n$ nodos en el que todo nodo tiene por lo menos una flecha entrante. Escogemos un nodo cualquiera de dicho grafo. Al tener por lo menos una flecha entrante, podemos escoger uno de los nodos que apunta a él. Continuamos sucesivamente. Si después de $k < n$ iteraciones escogemos un nodo que ya hemos recorrido, entonces hemos terminado.
 
-Como podemos repetir este proceso cuanto queramos (pues todo nodo tiene por lo menos una flecha entrante)
+Si no, entonces después de $n$ iteraciones llegaremos a una lista de nodos recorridos que como máximo puede tener longitud $n$. Repitiendo el proceso una vez más (podemos, pues todo nodo tiene una flecha entrante), habremos recorrido $n + 1$ nodos de una lista de $n$ nodos y, por el principio del palomar, habremos recorrido algún nodo dos veces.
 
+En cualquiera de los dos casos, si seguimos el camino en orden inverso, tendremos un ciclo.
 \end{proof}
 
 Ahora demostramos el original
