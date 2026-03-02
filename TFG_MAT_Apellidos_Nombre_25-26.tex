@@ -296,77 +296,14 @@ El objetivo de este trabajo es establecer una base de entendimiento de los méto
 
 En particular, buscamos analizar las limitaciones de la estadística clásica para extraer relaciones causales, formalizar la teoría de los \textit{Directed Acyclic Graphs} (\textbf{DAGs}) en el contexto causal, definir con rigor los conceptos de \textit{d-separation} y \textbf{bloqueos}, establecer distinciones entre la probabilidad condicionada tradicional $P(Y \mid X)$ y $P(Y \mid do(X))$, presentar las reglas del $do$-Calculus, explorar los conceptos de \textit{Back-door criterion} y \textit{Front-door criterion}.
 
-\chapter{Bases conceptuales}
-\section{Conceptos de teoría de la medida}
-\begin{defin}
-Sea $\mathcal{W}$ un conjunto. Se dice que $\mathcal{B} \subseteq \mathcal{P(\mathcal{W})}$ es una $\sigma$-álgebra de $\mathcal{W}$ si satisface:
-\begin{enumerate}
-\item $\emptyset \in \mathcal{B}$
-\item $A \in B \implies A^c \in \mathcal{B}$
-\item $A_n \in \mathcal{B}$ para todo $n \in \mathbb{N} \implies \bigcup_{n \in \mathbb{N}} A_n \in \mathcal{B}$ 
-\end{enumerate}
 
-La tupla $(\mathcal{W, B})$ se llama espacio medible. A veces se dice $\mathcal{W}$ medible.
-\end{defin}
 
-\begin{defin}
-Sean $(\mathcal{W, B_W})$ y $(\mathcal{Z, B_Z})$ espacios medibles. Sea $f: \mathcal{W} \rightarrow \mathcal{B}$ una función. Diremos que $f$ es $\mathcal{B_W-B_Z}$ medible o simplemente medible si para todo $B \in \mathcal{B_Z}$ la preimagen $f^{-1}(B) \in \mathcal{B_W}$.
-\end{defin}
-
-\begin{defin}
-Sea $(\mathcal{W, B})$ un espacio medible. Una medida $\mu$ en $(\mathcal{W, B})$ es una función
-\begin{equation*}
-\mu: \mathcal{B} \rightarrow \mathbb{R} \cup \{\infty\}
-\end{equation*}
-tal que
-\begin{enumerate}
-\item $\mu(A) \in [0, \infty]$
-\item $\mu(\emptyset) = 0$
-\item $\sigma-$aditividad: para toda secuencia de conjuntos $A_n \in \mathcal{B}$ disjuntos dos a dos:
-\begin{equation*}
-\mu\left(\bigcup_{n \in \mathbb{N}}A_n\right) = \sum_{n\in\mathbb{N}} \mu(A_n)
-\end{equation*}
-\end{enumerate}
-\end{defin}
-\section{Conceptos de probabilidad}
-A lo largo del documento, asumimos siempre que estamos en un espacio de probabilidad $(\Omega, \mathcal{F}, P)$, con $\Omega$ el espacio muestral, $\mathcal{F}$ su $\sigma-$álgebra y $P:\mathcal{F} \rightarrow \mathbb{R}$ la función de medida de probabilidad que satisface los tres axiomas de Kolmogorov.
-
-\begin{defin}[Variable aleatoria]
-Una variable aleatoria es una función $X:\Omega \rightarrow \mathbb{R}$ tal que es medible, es decir, que cada preimagen de $X$ sobre un elemento de la $\sigma-$álgebra de Borel es un elemento de $\mathcal{F}$.
-\end{defin}
-
-\begin{defin}[Probabilidad condicionada]
-Sean $A$ y $B$ dos sucesos tales que $P(B) > 0$. Definimos la probabilidad de $A$ condicionada a $B$ como
-\begin{equation*}
-P(A \mid B) = \frac{P(A \cap B)}{P(B)}
-\end{equation*}
-\end{defin}
-Normalmente abreviaremos $P(A \cap B)$ o $P(X_1 \cap X_2 \cap \ldots\cap X_n)$ como $P(A, B)$ o $P(X_1, X_2, \ldots, X_n)$. En consecuencia de esta regla, tenemos $P(X_1, X_2, \ldots, X_n) = P(X_n\mid X_1, \ldots, X_{n-1})\ldots P(X_2\mid X_1)P(X_1)$ 
-\begin{defin}[Independencia condicional]
-Decimos que las variables $X$ e $Y$ son condicionalmente independientes dado $Z$ (denotado $(X \perp Y) \mid Z$ si
-\begin{equation*}
-P(X, Y \mid Z) = P(X\mid Z)P(Y\mid Z)
-\end{equation*}
-\end{defin}
-
-\begin{teor}[Ley de la probabilidad total]
-Supongamos $I \subseteq \mathbb{N}$ un conjunto finito o numerable. Digamos que los conjuntos $B_i$ con $i \in I$ son tales que:
-\begin{itemize}
-    \item $B_i \in \mathcal{F}$ para todo $i \in I$.
-    \item $i \neq j \rightarrow B_i \cap B_j = \emptyset$.
-    \item $\bigcup_{i \in I} B_i = \Omega$.
-    \item $P(B_i) > 0$ para todo $i \in I$.
-\end{itemize}
-Entonces, para cualquier suceso $A \in \mathcal{F}$:
-\begin{equation*}
-P(A) = \sum_{i \in I} P(A\mid B_i) P(B_i)
-\end{equation*}
-\end{teor}
 
 \begin{proof}
 Ver Apéndice~\ref{app:demo}
 \end{proof}
 
+\chapter{Conceptos de teoría de grafos}
 \begin{defin}[Orden topológico]
 Sea $G$ un grafo con nodos en $V$. Un orden topológico de los nodos de $V$ es un orden $V = \{X_1, \ldots, X_n\}$ tal que para todo par de nodos $X_i, X_j \in V$ tenemos $X_i \rightarrow X_j$ implica $i < j$.
 \end{defin}
@@ -397,56 +334,7 @@ P(X_j\mid \text{PA}_j) = P(X_j \mid X_1, \ldots X_{j-1})
 \end{equation*}
 \end{defin}
 
-\section{Teoría de grafos}
-\begin{defin}[Grafo dirigido]
-Decimos que el par $G = \langle V, E\rangle$ donde 
-\begin{itemize}
-    \item $V = \{X_1, X_2, \ldots, X_n \mid n \in \mathbb{N}\}$
-    \item $E \subseteq V \times V$ es un subconjunto de los pares ordenados con elementos en $V$.
-\end{itemize}
-es un grafo dirigido con vértices $V$ y aristas $E$.
-\end{defin}
 
-\textbf{Notación:} para todo par $(X_i, X_j) \in E$, diremos $X_i \rightarrow X_j$
-
-\begin{defin}[Parentesco]
-Para todo vértice del grafo $X_i$, definimos
-\begin{itemize}
-\item Los \textbf{padres} de $X_i$: $\text{PA}(X_i)=\{X_j \in V \mid X_j \rightarrow X_i \}$
-\item Los \textbf{hijos} de $X_i$: $\text{CH}(X_i)=\{X_j \in V \mid X_i \rightarrow X_j \}$
-\end{itemize}
-\label{def:parentesco}
-\end{defin}
-
-\begin{defin}[Camino]
-Dado un grafo dirigido $G=(V,E)$, un \textbf{camino} (o sendero) entre dos nodos $X$ e $Y$ es una secuencia de vértices distintos $(V_0,V_1,\ldots,V_k)$ tal que:
-\begin{enumerate}
-\item $V_0=X$ y $V_k=Y$.
-\item Para cada $i \in \{0,\ldots,k-1\}$, los vértices son adyacentes en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$ o bien $(V_{i+1},V_i)\in E$.
-\end{enumerate}
-\label{def:camino}
-\end{defin}
-
-\begin{defin}[Camino dirigido]
-Dado un grafo dirigido $G=(V,E)$, un \textbf{camino dirigido} entre dos nodos $X$ e $Y$ es una secuencia de vértices distintos $(V_0,V_1,\ldots,V_k)$ tal que:
-\begin{enumerate}
-\item $V_0=X$ y $V_k=Y$.
-\item Para cada $i \in \{0,\ldots,k-1\}$, los vértices están conectados en $G$. Es decir, se cumple $(V_i,V_{i+1}) \in E$.
-\end{enumerate}
-\end{defin}
-
-\begin{defin}[Ciclo Dirigido]
-Un \textbf{ciclo dirigido} es una secuencia de vértices $(V_0, V_1, \ldots, V_k)$ con $k \geq 1$ tal que:
-\begin{enumerate}
-    \item $(V_0, \ldots, V_{k-1})$ es un camino dirigido (vértices distintos).
-    \item $V_0 = V_k$ (el vértice inicial coincide con el final).
-\end{enumerate}
-\end{defin}
-
-\begin{defin}[Grafo Acíclico Dirigido - DAG]
-Un grafo dirigido $G = (V, E)$ se dice \textbf{acíclico} si no contiene ningún ciclo dirigido.
-A este tipo de estructuras se las conoce universalmente por sus siglas en inglés: \textbf{DAG} (\textit{Directed Acyclic Graph}).
-\end{defin}
 \chapter{Modelos Causales Estructurales e Intervenciones}
 
 \section{Modelo Estructural Causal}
@@ -703,9 +591,7 @@ Los conjuntos $X$ e $Y$ son d-separados por un conjunto $Z$ en un DAG $G$, si y 
 \clearpage
 
 \appendix 
-\chapter{Demostración de la Ley de Probabilidad Total}
-\label{app:demo}
-
+\include{appendix_a}
 \begin{proof}
 Como $A \subseteq \Omega$,
 \begin{equation*}
