@@ -450,7 +450,7 @@ A este tipo de estructuras se las conoce universalmente por sus siglas en inglé
 \chapter{Modelos Causales Estructurales e Intervenciones}
 
 \section{Modelo Estructural Causal}
-\subsection{Definición de SCM}
+\subsection{Definición de modelo estructural causal}
 De manera intuitiva, es útil contar con variables aleatorias para definir relaciones causales, pues podemos expresarlas como transformaciones numéricas. Surge de manera natural tratar causas entre variables aleatorias como dependencias por relaciones funcionales. Así pues, diremos que una variable está causada por otra \textbf{si existe una relación funcional estructurada} entre ambas.
 
 \begin{defin}[Ecuación estructural]
@@ -470,7 +470,7 @@ Aquí utilizamos dos conjuntos de variables distintos. No es coincidencia haber 
 Diremos que una estructura causal de un conjunto de variables $V$ es un DAG en el que cada nodo está asociado a una variable de $V$, y cada arista representa una relación funcional entre un nodo y sus padres.
 \end{defin}
 
-\begin{defin}[Modelo causal o modelo estructural causal (SCM)]
+\begin{defin}[Modelo causal o modelo estructural causal]
 Un modelo causal es un triple
 \begin{equation*}
     M = \langle U, V, F\rangle
@@ -485,13 +485,13 @@ donde
 Aquí vemos la distinción entre $\text{PA}_i$ y lo que definimos en \ref{def:parentesco}. En realidad, en el contexto de un modelo estructural, $\text{PA}_i = \text{PA}(V_i) \cap V$.
 
 \subsection{Grafo asociado a un Modelo Estructural Causal}
-Como ya veníamos anticipando, podemos transformar el modelo estructural causal en su grafo correspondiente. Sea $M = \langle U, V, F\rangle$ un SCM. Definimos su estructura causal asociada (o DAG asociado) como $G = \langle V \cup U,\bigcup_{i\in \{1, \ldots,n \}} E_i \rangle$, donde $E_i = \{(C, V_i) \mid C \in \text{PA}_i \cup U_i\}$. Es decir, el grafo donde cada enlace representa una relación funcional estructural entre variables.
+Como ya veníamos anticipando, podemos transformar el modelo estructural causal en su grafo correspondiente. Sea $M = \langle U, V, F\rangle$ un modelo estructural causal. Definimos su estructura causal asociada (o DAG asociado) como $G = \langle V \cup U,\bigcup_{i\in \{1, \ldots,n \}} E_i \rangle$, donde $E_i = \{(C, V_i) \mid C \in \text{PA}_i \cup U_i\}$. Es decir, el grafo donde cada enlace representa una relación funcional estructural entre variables.
 
-De acuerdo a la definición de SCM proporcionada, no tendríamos por qué suponer que en el grafo asociado no existen ciclos. Sin embargo, como modelamos causas, una intuición física nos diría que una causa \textbf{precede} a su efecto. Si hubiera un ciclo en el grafo asociado, tendríamos una relación temporal incompatible con lo que modelamos. Por ello, siempre hablaremos de de modelos \textit{Markovianos} en terminología de Pearl. En ellos, siempre existe un orden parcial de las variables endógenas tal que cada $V_i$ es consecuencia de sus precedentes en el orden.
+De acuerdo a la definición de modelo estructural causal proporcionada, no tendríamos por qué suponer que en el grafo asociado no existen ciclos. Sin embargo, como modelamos causas, una intuición física nos diría que una causa \textbf{precede} a su efecto. Si hubiera un ciclo en el grafo asociado, tendríamos una relación temporal incompatible con lo que modelamos. Por ello, siempre hablaremos de de modelos \textit{Markovianos} en terminología de Pearl. En ellos, siempre existe un orden parcial de las variables endógenas tal que cada $V_i$ es consecuencia de sus precedentes en el orden.
 
-Digamos que queremos representar, por medio de un SCM, cómo coexisten el estado de un interruptor ($X$), el estado de su circuito eléctrico asociado ($Y$) y el estado de la bombilla a la que conduce ($Z$). Defimimos también ls variables $U_X, U_Y$ y $U_Z$, que indican si ha ocurrido algo anómalo, o directamente si ocurre algún evento cuya causa no nos interesa modelar.
+Digamos que queremos representar, por medio de un modelo estructural causal, cómo coexisten el estado de un interruptor ($X$), el estado de su circuito eléctrico asociado ($Y$) y el estado de la bombilla a la que conduce ($Z$). Defimimos también ls variables $U_X, U_Y$ y $U_Z$, que indican si ha ocurrido algo anómalo, o directamente si ocurre algún evento cuya causa no nos interesa modelar.
 
-Dicho de otra forma, estamos considerando el SCM con $V = \{X, Y, Z\}$ y $U = \{U_X, U_Y, U_Z\}$. Para sus relaciones causales, tenemos que:
+Dicho de otra forma, estamos considerando el modelo estructural causal con $V = \{X, Y, Z\}$ y $U = \{U_X, U_Y, U_Z\}$. Para sus relaciones causales, tenemos que:
 
 \begin{align*}
 f_X : X &= U_X \\[1.5ex]
@@ -532,18 +532,18 @@ Transformando las funciones en relaciones causales de acuerdo al proceso de cons
 \draw[thick, postaction={decorate}] (UZ) -- (Z);
 
 \end{tikzpicture}
-\caption{Modelo estructural del SCM descrito. Las variables exógenas junto con las endógenas antecesoras de cada variable determinan el estado del sistema.}
+\caption{Modelo estructural descrito. Las variables exógenas junto con las endógenas antecesoras de cada variable determinan el estado del sistema.}
 \label{fig:grafo-interruptor}
 \end{figure}
 
-Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde que transcurren al despertarse', $Y$ como `número de minutos tarde que llegas a la oficina' y $Z$ como `duración del enfado de un jefe poco permisivo'. Las expresiones concretas que tuvieran las relaciones causales que existen entre estas tres variables seguirían sin influir en el grafo. Por tanto, la estructura causal de este modelo causal sería también la de la Figura~\ref{fig:grafo-interruptor}. Por tanto, si podemos decir algo del modelo gráfico, \textbf{podremos decirlo también de cualquier SCM} cuyo modelo gráfico sea ese.
+Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde que transcurren al despertarse', $Y$ como `número de minutos tarde que llegas a la oficina' y $Z$ como `duración del enfado de un jefe poco permisivo'. Las expresiones concretas que tuvieran las relaciones causales que existen entre estas tres variables seguirían sin influir en el grafo. Por tanto, la estructura causal de este modelo causal sería también la de la Figura~\ref{fig:grafo-interruptor}. Por tanto, si podemos decir algo del modelo gráfico, \textbf{podremos decirlo también de cualquier modelo estructural causal} cuyo modelo gráfico sea ese.
 
 \section{Distribución de probabilidad compatible con un grafo}
 Para poder establecer el puente de paso final entre un grafo y sus distribuciones de probabilidad compatibles nos apoyaremos en la condición causal de Markov, así como en el concepto de padres Markovianos (\ref{def:padres-markovianos}).
 
 \begin{defin}[Condición de Markov Causal]
 \label{markov-causal}
-Sea $M = \langle U, V, F\rangle$ un SCM con DAG asociado $G$. 
+Sea $M = \langle U, V, F\rangle$ un modelo estructural causal con DAG asociado $G$. 
 Fijemos un orden topológico de $V$, necesario para la 
 definición de padres Markovianos (Definición~\ref{def:padres-markovianos}). 
 Diremos que $M$ satisface la \textbf{condición de Markov Causal} 
@@ -551,7 +551,11 @@ si para todo $V_j \in V$, sus padres Markovianos coinciden
 con sus padres en $G$.
 \end{defin}
 
-Finalmente, podemos definir el puente final entre un grafo que cumple con 
+Finalmente, podemos definir el puente final entre un grafo y una distribución de probabilidad.
+
+\begin{teor}
+Supongamos un grafo 
+\end{teor}
 
 \section{Estructuras topológicas elementales: cadena, bifurcación y colisión: d-separación}
 Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conectado con $Z$, cualquiera que sea la dirección de dicha conexión. De forma similar, $Z$ está conectado con $Y$. Entonces, existen cuatro estados posibles.
@@ -564,7 +568,7 @@ Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conecta
 \subsection{Cadena}
 Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las variables. En el caso de la cadena, la intuición nos dice que $Z$ e $Y$ son dependientes, es decir $P(Z = z \mid Y = y) \neq P(Z)$ para algún par $z, y$. Podríamos también aventurarnos a afirmar que $Z$ y $X$ son dependientes. Podemos construir ejemplos `artificiales' donde estas afirmaciones sean falsas (ver Apéndice~\ref{app:independent}), pero no buscamos que se cumplan rigurosamente.
 
-Uno además podría pensar en la cadena en términos de \textbf{cómo de específica} es una información. Supongamos la cadena del SCM descrito en la Figura~\ref{fig:grafo-interruptor}, con las interpretaciones del interruptor, el circuito y la bombilla.
+Uno además podría pensar en la cadena en términos de \textbf{cómo de específica} es una información. Supongamos la cadena del modelo estructural causal descrito en la Figura~\ref{fig:grafo-interruptor}, con las interpretaciones del interruptor, el circuito y la bombilla.
 
 Armados con nuestra intuición, pensamos en la probabilidad de que la bombilla esté encendida dado que el interruptor está en estado `ENCENDIDO'. Esta es, de forma intuitiva, la probabilidad de que no haya anomalías en el circuito.
 
@@ -593,7 +597,7 @@ Supongamos la situación $Z$ como `un interruptor ha sido presionado'. La variab
 \draw[thick, postaction={decorate}] (Z) -- (Y);
 
 \end{tikzpicture}
-\caption{Modelo estructural del SCM descrito. El que alguien le dé al interruptor causa que se encienda la bombilla y que suene el interruptor.}
+\caption{Modelo estructural descrito. El que alguien le dé al interruptor causa que se encienda la bombilla y que suene el interruptor.}
 \label{fig:grafo-interruptor-fork}
 \end{figure}
 
@@ -606,7 +610,7 @@ Supongamos ahora que en cualquiera de las dos situaciones se le dice al observad
 Esto nos da otra propiedad que también demostraremos más adelante: en una bifurcación como la de la Figura~\ref{fig:grafo-interruptor-fork}, $X$ e $Y$ son condicionalmente independientes dado $Z$.
 
 \subsection{Colisión}
-Álvaro y Luis hacen una apuesta. Se tirarán dos monedas. En caso de que las monedas caigan en la misma cara, Álvaro se lleva las dos monedas. En caso contrario, irán a parar al bolsillo de Luis. Digamos $X$ e $Y$ representan las dos monedas, $Z$ representa el ganador de la apuesta. El SCM tiene como modelo gráfico el de la Figura~\ref{fig:grafo-interruptor-colision}
+Álvaro y Luis hacen una apuesta. Se tirarán dos monedas. En caso de que las monedas caigan en la misma cara, Álvaro se lleva las dos monedas. En caso contrario, irán a parar al bolsillo de Luis. Digamos $X$ e $Y$ representan las dos monedas, $Z$ representa el ganador de la apuesta. El modelo estructural causal tiene como modelo gráfico el de la Figura~\ref{fig:grafo-interruptor-colision}
 
 \begin{figure}[ht]
     \centering
@@ -626,7 +630,7 @@ Esto nos da otra propiedad que también demostraremos más adelante: en una bifu
 \draw[thick, postaction={decorate}] (Y) -- (Z);
 
 \end{tikzpicture}
-\caption{Modelo estructural del SCM descrito. El resultado de las dos monedas decide el ganador de la apuesta.}
+\caption{Modelo estructural descrito. El resultado de las dos monedas decide el ganador de la apuesta.}
 \label{fig:grafo-interruptor-colision}
 \end{figure}
 
@@ -719,7 +723,7 @@ P(A) = \sum_{i \in I} P(B_i \cap A) = \sum_{i \in I} P(A \mid B_i)P(B_i)
 \chapter{Independencia en la cadena}
 \label{app:independent}
 
-Supongamos tres variables aleatorias $X, Y, Z$ conectadas por un SCM en cadena tal que $X \rightarrow Y \rightarrow Z$. Sabemos entonces que existen $f_Y, f_Z$ tales que $f_Y$ determina el valor de $Y$ dependiente del valor de $X$ y análogamente con $f_Z$, $Z$ e $Y$.
+Supongamos tres variables aleatorias $X, Y, Z$ conectadas por un modelo estructural causal en cadena tal que $X \rightarrow Y \rightarrow Z$. Sabemos entonces que existen $f_Y, f_Z$ tales que $f_Y$ determina el valor de $Y$ dependiente del valor de $X$ y análogamente con $f_Z$, $Z$ e $Y$.
 
 Suponemos que estamos en un espacio de probabilidad $(\Omega, \mathcal{F}, P)$. Si definimos $h = f_Y \circ f_Z$ tenemos la relación causal entre $X$ y $Z$. Si suponemos variables exógenas $U_Y, U_Z$, tenemos
 
