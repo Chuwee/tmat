@@ -367,6 +367,17 @@ P(A) = \sum_{i \in I} P(A\mid B_i) P(B_i)
 Ver Apéndice~\ref{app:demo}
 \end{proof}
 
+\begin{defin}[Orden topológico]
+Sea $G$ un grafo con nodos en $V$. Un orden topológico de los nodos de $V$ es un orden $V = \{X_1, \ldots, X_n\}$ tal que para todo par de nodos $X_i, X_j \in V$ tenemos $X_i \rightarrow X_j$ implica $i < j$.
+\end{defin}
+
+\begin{teor}
+Todo grafo acíclico dirigido tiene un orden topológico.
+\end{teor}
+\begin{demo}
+    
+\end{demo}
+
 \begin{defin}[Padres Markovianos]
 \label{def:padres-markovianos}
 Sea $V = \{X_1, \ldots, X_n\}$ un conjunto de variables y sea $P(v)$ su distribución de probabilidad conjunta. Un conjunto $\text{PA}_j \subseteq V$ se dice que son los padres Markovianos de $X_j$ si $\text{PA}_j$ es el mínimo conjunto de variables predecesoras (es decir $X_i \in \text{PA}_j \rightarrow i < j$) tal que condicionar por los padres Markovianos de $X_j$ es lo mismo que condicionar por todos sus predecesores, es decir:
