@@ -378,14 +378,14 @@ Para demostrar este teorema necesitamos el siguiente lema
 \begin{lema}
 Todo grafo acíclico dirigido debe tener al menos un nodo sin flechas entrantes.
 \end{lema}
-\begin{demo}
+\begin{proof}
 Supongamos que no. Entonces, escojamos al azar un nodo del grafo. Como tiene flechas entrantes, podemos ir hacia atrás todo lo que queramos. Como el grafo tiene nodos finitos, por el principio del palomar volveremos a llegar a alguno de los nodos visitados.
-\end{demo}
+\end{proof}
 
 Ahora demostramos el original
-\begin{demo}
+\begin{proof}
 Escogemos como primeros nodos en cualquier orden aquellos que no tienen flechas entrantes. Posteriormente, escogemos los hijos del primer nodo, en cualquier orden que se quiera, seguidos de los del segundo nodo... (búsqueda en anchura). Así construimos un orden topológico.
-\end{demo}
+\end{proof}
 
 
 \begin{defin}[Padres Markovianos]
@@ -542,8 +542,16 @@ Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde qu
 Para poder establecer el puente de paso final entre un grafo y sus distribuciones de probabilidad compatibles nos apoyaremos en la condición causal de Markov, así como en el concepto de padres Markovianos (\ref{def:padres-markovianos}).
 
 \begin{defin}[Condición de Markov Causal]
-Sea $M = \langle U, V, F\rangle$ un SCM con DAG asociado $G$. En el contexto de la Definición~\ref{def:padres-markovianos}, decimos que las variables predecesoras de $V_j$ son aquellas variables del grafo que forman parte de los \textbf{no descendientes} de $V_j$ ($\text{ND}_j$). Diremos que el modelo $M$ satisface la condición de Markov causal si para todo $V_j \in V$ sus padres Markovianos coinciden con sus padres del grafo $G$.
+\label{markov-causal}
+Sea $M = \langle U, V, F\rangle$ un SCM con DAG asociado $G$. 
+Fijemos un orden topológico de $V$, necesario para la 
+definición de padres Markovianos (Definición~\ref{def:padres-markovianos}). 
+Diremos que $M$ satisface la \textbf{condición de Markov Causal} 
+si para todo $V_j \in V$, sus padres Markovianos coinciden 
+con sus padres en $G$.
 \end{defin}
+
+Finalmente, podemos definir el puente final entre un grafo que cumple con 
 
 \section{Estructuras topológicas elementales: cadena, bifurcación y colisión: d-separación}
 Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conectado con $Z$, cualquiera que sea la dirección de dicha conexión. De forma similar, $Z$ está conectado con $Y$. Entonces, existen cuatro estados posibles.
