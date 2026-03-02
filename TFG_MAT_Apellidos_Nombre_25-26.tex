@@ -374,9 +374,19 @@ Sea $G$ un grafo con nodos en $V$. Un orden topológico de los nodos de $V$ es u
 \begin{teor}
 Todo grafo acíclico dirigido tiene un orden topológico.
 \end{teor}
+Para demostrar este teorema necesitamos el siguiente lema
+\begin{lema}
+Todo grafo acíclico dirigido debe tener al menos un nodo sin flechas entrantes.
+\end{lema}
 \begin{demo}
-    
+Supongamos que no. Entonces, escojamos al azar un nodo del grafo. Como tiene flechas entrantes, podemos ir hacia atrás todo lo que queramos. Como el grafo tiene nodos finitos, por el principio del palomar volveremos a llegar a alguno de los nodos visitados.
 \end{demo}
+
+Ahora demostramos el original
+\begin{demo}
+Escogemos como primeros nodos en cualquier orden aquellos que no tienen flechas entrantes. Posteriormente, escogemos los hijos del primer nodo, en cualquier orden que se quiera, seguidos de los del segundo nodo... (búsqueda en anchura). Así construimos un orden topológico.
+\end{demo}
+
 
 \begin{defin}[Padres Markovianos]
 \label{def:padres-markovianos}
