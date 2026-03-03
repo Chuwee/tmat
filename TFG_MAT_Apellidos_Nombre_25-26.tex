@@ -440,6 +440,7 @@ con sus padres en $G$.
 \end{defin}
 
 \begin{teor}
+\label{distro-compat-teorema}
 Sea $M$ un modelo estructural causal que satisface la condición de Markov. La distribución conjunta de las variables endógenas puede factorizarse como
 \begin{equation*}
 P(v_1, \ldots, v_n) = \prod_{i=1}^n P(v_i \mid \text{pa}_i)
@@ -458,9 +459,9 @@ Sustituyendo en el producto $\prod_{j=1}^n P(v_j \mid v_1, \ldots, v_{j-1})$ que
 
 Finalmente, podemos definir el puente final entre un grafo y una distribución de probabilidad.
 
-\begin{teor}
-Supongamos un grafo 
-\end{teor}
+\begin{defin}[Distribución compatible]
+Diremos que una distribución es compatible con un grafo $G$ si factoriza de acuerdo al 
+\end{defin}
 
 \section{Estructuras topológicas elementales: cadena, bifurcación y colisión: d-separación}
 Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conectado con $Z$, cualquiera que sea la dirección de dicha conexión. De forma similar, $Z$ está conectado con $Y$. Entonces, existen cuatro estados posibles.
