@@ -446,7 +446,12 @@ P(v_1, \ldots, v_n) = \prod_{i=1}^n P(v_i \mid \text{pa}_i)
 \end{equation*}
 \end{teor}
 \begin{proof}
-Sea $V$ el conjunto de variables exógenas de $M$. Podemos escribir un orden topológico de la forma $V = \{V_1, V_2, \ldots, V_n\}$. Por la regla del producto (ver 
+Sea $V$ el conjunto de variables exógenas de $M$. Podemos escribir un orden topológico de la forma $V = \{V_1, V_2, \ldots, V_n\}$. Por la regla del producto (ver~\ref{regla-del-producto}), la distribución conjunta $P(v_1, v_2, \ldots, v_n)$ factoriza como $\prod_{j=1}^n P(v_j \mid v_1, \ldots, v_{j-1})$.
+
+Al estar en orden topológico, el conjunto $\{V_1, \ldots, V_{j-1}\}$ contiene a los padres de $V_j$. Como el modelo $M$ cumple la condición de Markov causal, los padres de $V_j$ coinciden con sus padres Markovianos. Por definición de padres Markovianos, tenemos
+\begin{equation*}
+P(v_j \mid v_1, \ldots, v_{j-1}) = P(v_j\mid pa_j)
+\end{equation*}
 \end{proof}
 
 Finalmente, podemos definir el puente final entre un grafo y una distribución de probabilidad.
