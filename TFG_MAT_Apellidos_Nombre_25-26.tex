@@ -600,7 +600,7 @@ Primero veamos los casos locales, es decir, veamos que la d-separación bloquea 
 \begin{enumerate}
     \item Para la cadena $x \to z \to y$ tal que $z \in Z$. Como estamos suponiendo que satisfacemos la condición de Markov causal, tenemos que $(y \perp ND_y) \mid PA_y$, es decir $(y \perp x )\mid z$.
     \item Para la bifurcación $x \leftarrow z \to y$ tal que $z \in Z$, tenemos que por la misma razón, $x \perp ND_x \mid PA_x$, por lo que $x \perp y \mid z$.
-    \item Para la colisión tenemos que $x \to z \leftarrow y$ donde $z \notin Z$.
+    \item Para la colisión tenemos que $x \to z \leftarrow y$ donde $z \notin Z$. En efecto, como $PA_x = \emptyset = PA_y$, las variables $x$ e $y$ son independientes pues $x \perp ND_x \mid PA_x$
 \end{enumerate}
 \end{proof}
 
