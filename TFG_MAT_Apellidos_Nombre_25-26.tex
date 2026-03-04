@@ -598,7 +598,7 @@ Los conjuntos $X$ e $Y$ son d-separados por un conjunto $Z$ en un grafo acíclic
 \begin{proof}
 Primero demostramos la implicación $\implies$. Primero lo demostramos para dos nodos cualesquiera. Sean $a$ y $b$ dos nodos del grafo que están d-separados. Entonces, para todo camino $p$ entre $a$ y $b$ o bien:
 \begin{enumerate}
-    \item $p$ contiene una cadena $x \to z \to y$ tal que $z \in Z$
+    \item $p$ contiene una cadena $x \to z \to y$ tal que $z \in Z$. En este caso, $x \perp y \mid z$. En efecto, $P(x, y \mid z) = P(x \mid y, z) P(y\mid z)$
 \end{enumerate}
 \end{proof}
 
