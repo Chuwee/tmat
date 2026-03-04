@@ -327,7 +327,7 @@ Consideramos un orden topológico de $G'$, $X_2, X_3, \ldots, X_n$. Entonces, $X
 
 \begin{defin}[Padres Markovianos]
 \label{def:padres-markovianos}
-Sea $V = \{X_1, \ldots, X_n\}$ un conjunto de variables y sea $P(v)$ su distribución de probabilidad conjunta. Un conjunto $\text{PA}_j \subseteq V$ se dice que son los padres Markovianos de $X_j$ si $\text{PA}_j$ es el mínimo conjunto de variables predecesoras (es decir $X_i \in \text{PA}_j \rightarrow i < j$) tal que condicionar por los padres Markovianos de $X_j$ es lo mismo que condicionar por todos sus predecesores, es decir:
+Sea $V = \{X_1, \ldots, X_n\}$ un conjunto de variables ordenadads y sea $P(v)$ su distribución de probabilidad conjunta. Un conjunto $\text{PA}_j \subseteq V$ se dice que son los padres Markovianos de $X_j$ si $\text{PA}_j$ es el mínimo conjunto de variables predecesoras (es decir $X_i \in \text{PA}_j \rightarrow i < j$) tal que condicionar por los padres Markovianos de $X_j$ es lo mismo que condicionar por todos sus predecesores , es decir:
 
 \begin{equation*}
 P(X_j\mid \text{PA}_j) = P(X_j \mid X_1, \ldots X_{j-1})
@@ -596,9 +596,9 @@ Diremos que dos nodos son d-separados por $Z$ si todo camino entre ellos está d
 Los conjuntos $X$ e $Y$ son d-separados por un conjunto $Z$ en un grafo acíclico dirigido $G$ si y solo si las variables en $X$ son independientes de las variables en $Y$ condicionando por $Z$ en toda distribución compatible con $G$.
 \end{teor}
 \begin{proof}
-Primero demostramos la implicación $\implies$. Primero lo demostramos para dos nodos cualesquiera. Sean $A$ y $B$ dos nodos del grafo que están d-separados. Entonces, o bien:
+Primero demostramos la implicación $\implies$. Primero lo demostramos para dos nodos cualesquiera. Sean $A$ y $B$ dos nodos del grafo que están d-separados. Entonces, para todo camino $p$ entre $A$ y $B$ o bien:
 \begin{enumerate}
-    \item hay 
+    \item $p$ contiene una cadena $x \to z \to y$ tal que $z \notin Z$
 \end{enumerate}
 \end{proof}
 
