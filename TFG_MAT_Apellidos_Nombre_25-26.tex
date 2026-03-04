@@ -598,7 +598,7 @@ Los conjuntos $X$ e $Y$ son d-separados por un conjunto $Z$ en un grafo acíclic
 \begin{proof}
 Primero demostramos la implicación $\implies$. Primero lo demostramos para dos nodos cualesquiera. Sean $a$ y $b$ dos nodos del grafo que están d-separados. Entonces, para todo camino $p$ entre $a$ y $b$ o bien:
 \begin{enumerate}
-    \item $p$ contiene una cadena $x \to z \to y$ tal que $z \in Z$. Como $G$ satisface la condición de Markov causal, tenemos que $(y \perp ND_y) \mid PA_y$, es decir $(y \perp x )\mid z$. De esta forma $a \leftrightarrow \ldots \leftrightarrow x \rightarrow z \rightarrow y \leftrightarrow \ldots \leftrightarrow b$. Vayamos por inducción sobre la longitud de $p$. El caso base es $n = 2$, donde necesariamente $a = x$ y $b = y$. Supongamos que se cumple para caminos de longitud $n-1$. 
+    \item $p$ contiene una cadena $x \to z \to y$ tal que $z \in Z$. Como $G$ satisface la condición de Markov causal, tenemos que $(y \perp ND_y) \mid PA_y$, es decir $(y \perp x )\mid z$. De esta forma $a \leftrightarrow \ldots \leftrightarrow x \rightarrow z \rightarrow y \leftrightarrow \ldots \leftrightarrow b$. Vayamos por inducción sobre el número de aristas en $p$. El caso base es $n = 2$, donde necesariamente $a = x$ y $b = y$. Supongamos que se cumple para caminos con $n-1$ aristas. 
 \end{enumerate}
 \end{proof}
 
