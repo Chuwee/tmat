@@ -179,7 +179,7 @@ En definitiva, \textbf{$N$ variables no están causalmente relacionadas por esta
 
 La diferencia clave entre la estadística tradicional y el estudio de la causalidad es la intervención. Una manera de saber si hay una relación causal entre dos variables es la de responder a la pregunta: \textbf{¿cambiaría la variable $X$ si modifico la variable $Y$?}, mientras que, originalmente, en estadística preguntamos \textbf{¿hemos observado que un cambio en $X$ está asociado a un cambio en la variable $Y$?}
 \section{La paradoja de Simpson}
-Supongamos una población en la que se ha descubierto una nueva epidemia. Rápidamente, los doctores responsables del bienestar de dicha población se ponen manos a la obra para intentar descubrir un remedio. Un estudio preliminar observacional sobre una medicación $M$ arroja los datos que podemos ver en la Tabla~\ref{tab:drug-no-gender}.
+Tenemos una población en la que se ha identificado una nueva epidemia. Rápidamente, los doctores responsables del bienestar de dicha población se ponen manos a la obra para intentar descubrir un remedio. Un estudio preliminar observacional sobre una medicación $M$ arroja los datos que podemos ver en la Tabla~\ref{tab:drug-no-gender}.
 
 \begin{table}[ht]
     \centering
@@ -355,7 +355,7 @@ Y diremos que $f_i$ es la ecuación que determina el valor de $X_i$ dados $\text
 Aquí utilizamos dos conjuntos de variables distintos. No es coincidencia haber escogido $\text{PA}$ para denotar las variables que `causan' el valor de $X_i$, pues se alinean con la Definición~\ref{def:parentesco}, con un matiz que veremos más adelante. Estas son las variables que tenemos en cuenta en nuestros modelos causales. Utilizamos el conjunto de variables $U$ para denotar a variables generadas por factores externos a lo que incluimos en nuestro modelo. Es entonces natural definir ahora el `puente' a los \textbf{modelos causales estructurales}. Diremos que existe una \textbf{relación funcional} entre un nodo y sus padres. Notemos que utilizamos $:=$ puesto que $X_i$ es una consecuencia de los valores de los que depende, pero los valores de los que depende no cambian si cambia $X_i$.
 
 \begin{defin}[Estructura causal]
-Diremos que una estructura causal de un conjunto de variables $V$ es un DAG en el que cada nodo está asociado a una variable de $V$, y cada arista representa una relación funcional entre un nodo y sus padres.
+Diremos que una estructura causal de un conjunto de variables $V$ es un grafo acíclico dirigido en el que cada nodo está asociado a una variable de $V$, y cada arista representa una relación funcional entre un nodo y sus padres.
 \end{defin}
 
 \begin{defin}[Modelo causal o modelo estructural causal]
@@ -373,7 +373,7 @@ donde
 Aquí vemos la distinción entre $\text{PA}_i$ y lo que definimos en \ref{def:parentesco}. En realidad, en el contexto de un modelo estructural, $\text{PA}_i = \text{PA}(V_i) \cap V$.
 
 \subsection{Grafo asociado a un Modelo Estructural Causal}
-Como ya veníamos anticipando, podemos transformar el modelo estructural causal en su grafo correspondiente. Sea $M = \langle U, V, F\rangle$ un modelo estructural causal. Definimos su estructura causal asociada (o DAG asociado) como $G = \langle V \cup U,\bigcup_{i\in \{1, \ldots,n \}} E_i \rangle$, donde $E_i = \{(C, V_i) \mid C \in \text{PA}_i \cup U_i\}$. Es decir, el grafo donde cada enlace representa una relación funcional estructural entre variables.
+Como ya veníamos anticipando, podemos transformar el modelo estructural causal en su grafo correspondiente. Sea $M = \langle U, V, F\rangle$ un modelo estructural causal. Definimos su estructura causal asociada (o grafo acíclico dirigidoasociado) como $G = \langle V \cup U,\bigcup_{i\in \{1, \ldots,n \}} E_i \rangle$, donde $E_i = \{(C, V_i) \mid C \in \text{PA}_i \cup U_i\}$. Es decir, el grafo donde cada enlace representa una relación funcional estructural entre variables.
 
 De acuerdo a la definición de modelo estructural causal proporcionada, no tendríamos por qué suponer que en el grafo asociado no existen ciclos. Sin embargo, como modelamos causas, una intuición física nos diría que una causa \textbf{precede} a su efecto. Si hubiera un ciclo en el grafo asociado, tendríamos una relación temporal incompatible con lo que modelamos. Por ello, siempre hablaremos de de modelos \textit{Markovianos} en terminología de Pearl. En ellos, siempre existe un orden parcial de las variables endógenas tal que cada $V_i$ es consecuencia de sus precedentes en el orden.
 
@@ -424,14 +424,14 @@ Transformando las funciones en relaciones causales de acuerdo al proceso de cons
 \label{fig:grafo-interruptor}
 \end{figure}
 
-Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde que transcurren al despertarse', $Y$ como `número de minutos tarde que llegas a la oficina' y $Z$ como `duración del enfado de un jefe poco permisivo'. Las expresiones concretas que tuvieran las relaciones causales que existen entre estas tres variables seguirían sin influir en el grafo. Por tanto, la estructura causal de este modelo causal sería también la de la Figura~\ref{fig:grafo-interruptor}. Por tanto, si podemos decir algo del modelo gráfico, \textbf{podremos decirlo también de cualquier modelo estructural causal} cuyo modelo gráfico sea ese.
+Supongamos, por ejemplo, que interpretamos $X$ como `número de minutos tarde que transcurren al despertarse', $Y$ como `número de minutos tarde que llegas a la oficina' y $Z$ como `duración del enfado de un jefe poco permisivo'. Las expresiones concretas que describan las relaciones causales entre estas tres variables no alteran el grafo. Por tanto, la estructura causal de este modelo coincide con la representada en la Figura~\ref{fig:grafo-interruptor}. En consecuencia, cualquier resultado que se derive del modelo gráfico será válido para todo modelo estructural causal cuyo grafo sea ese.
 
 \section{Distribución de probabilidad compatible con un grafo}
 Para poder establecer el puente de paso final entre un grafo y sus distribuciones de probabilidad compatibles nos apoyaremos en la condición causal de Markov, así como en el concepto de padres Markovianos (\ref{def:padres-markovianos}).
 
 \begin{defin}[Condición de Markov Causal]
 \label{markov-causal}
-Sea $M = \langle U, V, F\rangle$ un modelo estructural causal con DAG asociado $G$. 
+Sea $M = \langle U, V, F\rangle$ un modelo estructural causal con grafo acíclico dirigido asociado $G$. 
 Fijemos un orden topológico de $V$, necesario para la 
 definición de padres Markovianos (Definición~\ref{def:padres-markovianos}). 
 Diremos que $M$ satisface la \textbf{condición de Markov Causal} 
@@ -464,7 +464,7 @@ Diremos que una distribución es compatible con un grafo $G$ si factoriza de acu
 \end{defin}
 
 \section{Estructuras topológicas elementales: cadena, bifurcación y colisión: d-separación}
-Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conectado con $Z$, cualquiera que sea la dirección de dicha conexión. De forma similar, $Z$ está conectado con $Y$. Entonces, existen cuatro estados posibles.
+Supongamos que tenemos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conectado con $Z$, cualquiera que sea la dirección de dicha conexión. De forma similar, $Z$ está conectado con $Y$. Entonces, existen cuatro estados posibles.
 \begin{enumerate}
     \item $X \rightarrow Z \rightarrow Y$ (o $X \leftarrow Z \leftarrow Y$, pero nos referimos a la anterior pues son simétricas), la \textbf{cadena}
     \item $X \leftarrow Z \rightarrow Y$, la \textbf{bifurcación}
@@ -472,9 +472,9 @@ Supongamos un grafo dirigido de tres nodos $(X, Y, Z)$ tal que $X$ está conecta
 \end{enumerate}
 
 \subsection{Cadena}
-Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las variables. En el caso de la cadena, la intuición nos dice que $Z$ e $Y$ son dependientes, es decir $P(Z = z \mid Y = y) \neq P(Z)$ para algún par $z, y$. Podríamos también aventurarnos a afirmar que $Z$ y $X$ son dependientes. Podemos construir ejemplos `artificiales' donde estas afirmaciones sean falsas (ver Apéndice~\ref{app:independent}), pero no buscamos que se cumplan rigurosamente.
+Podríamos aventurarnos a formular afirmaciones sobre la dependencia de las variables. En el caso de la cadena, la intuición nos dice que $Z$ e $Y$ son dependientes, es decir $P(Z = z \mid Y = y) \neq P(Z)$ para algún par $z, y$. Podríamos también aventurarnos a afirmar que $Z$ y $X$ son dependientes. Podemos construir ejemplos `artificiales' donde estas afirmaciones sean falsas (ver Apéndice~\ref{app:independent}).
 
-Uno además podría pensar en la cadena en términos de \textbf{cómo de específica} es una información. Supongamos la cadena del modelo estructural causal descrito en la Figura~\ref{fig:grafo-interruptor}, con las interpretaciones del interruptor, el circuito y la bombilla.
+Uno además podría pensar en la cadena en términos de \textbf{cómo de específica} es una información. Consideremos la cadena del modelo estructural causal descrito en la Figura~\ref{fig:grafo-interruptor}, con las interpretaciones del interruptor, el circuito y la bombilla.
 
 Armados con nuestra intuición, pensamos en la probabilidad de que la bombilla esté encendida dado que el interruptor está en estado `ENCENDIDO'. Esta es, de forma intuitiva, la probabilidad de que no haya anomalías en el circuito.
 
@@ -516,7 +516,7 @@ Supongamos ahora que en cualquiera de las dos situaciones se le dice al observad
 Esto nos da otra propiedad que también demostraremos más adelante: en una bifurcación como la de la Figura~\ref{fig:grafo-interruptor-fork}, $X$ e $Y$ son condicionalmente independientes dado $Z$.
 
 \subsection{Colisión}
-Álvaro y Luis hacen una apuesta. Se tirarán dos monedas. En caso de que las monedas caigan en la misma cara, Álvaro se lleva las dos monedas. En caso contrario, irán a parar al bolsillo de Luis. Digamos $X$ e $Y$ representan las dos monedas, $Z$ representa el ganador de la apuesta. El modelo estructural causal tiene como modelo gráfico el de la Figura~\ref{fig:grafo-interruptor-colision}
+Álvaro y Luis hacen una apuesta. Se tirarán dos monedas. En caso de que ambas caigan del mismo lado, Álvaro se lleva las dos monedas. En caso contrario, irán a parar al bolsillo de Luis. Digamos que $X$ e $Y$ representan las dos monedas, $Z$ representa el ganador de la apuesta. El modelo estructural causal tiene como modelo gráfico el de la Figura~\ref{fig:grafo-interruptor-colision}
 
 \begin{figure}[ht]
     \centering
